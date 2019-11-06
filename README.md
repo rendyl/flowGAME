@@ -1,6 +1,9 @@
 # FLOW
 
-*LATBI Rendy COURBIER Raphaël AMBROISE Aurélien*
+#### M2 :
+*LATBI Rendy, COURBIER Raphaël*
+#### LD :
+*AMBROISE Aurélien*
 
 ## Pitch :
 
