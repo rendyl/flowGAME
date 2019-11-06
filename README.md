@@ -1,4 +1,5 @@
 # FLOW
+![Flow](flow.png)
 
 #### M2 :
 *LATBI Rendy, COURBIER Raphaël*
