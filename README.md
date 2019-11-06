@@ -7,7 +7,7 @@
 
 ## Pitch :
 
-Flow est un Runner 3D die and retry. En vue troisième personne, le joueur incarne personnage qui se déplace dans une ville. Dans cette dernière, il doit terminer le plus rapidement possible un niveau, son score final étant basé dessus. Le joueur à la possibilité de se déplacer dans 3 couloirs et sur 3 hauteurs. La vitesse du jeu s’accélère quand le joueur récupère un bonus, il n’y a pas d’accélération mais un système de palier de vitesse et la distance entre les obstacles est rythmée et accompagnée de la musique.
+Flow est un Runner 3D Die & Retry rythmé. En vue troisième personne, le joueur incarne un personnage qui se déplace dans une ville. Dans cette dernière, il doit terminer le plus rapidement possible un niveau, son score final étant basé dessus. Le joueur à la possibilité de se déplacer dans 3 couloirs et sur 3 hauteurs. La vitesse du jeu s’accélère quand le joueur récupère un bonus, il n’y a pas d’accélération mais un système de palier de vitesse et la distance entre les obstacles est rythmée et accompagnée de la musique.
 
 ## Fiche signalétique :
 - Thématique : Roller street.
