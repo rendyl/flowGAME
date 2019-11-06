@@ -26,14 +26,14 @@ L'espace de jeu se compose d'un tableau de 3X3.
 La hitbox du personnage fait 1 bloc de large et 2 de haut.
 
 ---     --- <br>
----     -I- <br>
----     -I- <= Personnage. <br>
+---     -#- <br>
+---     -#- <= Personnage. <br>
 
 ### Z : JUMP
 - La touche Z permet au joueur de sauter par dessus de certains obstacles
 - La hitbox du personnage diminue et passe à 1X1.
 
----     -I- <br>
+---     -#- <br>
 000     000 <br>
 000     000 <br>
 
@@ -43,7 +43,7 @@ La hitbox du personnage fait 1 bloc de large et 2 de haut.
 - La hitbox du personnage diminue et passe à 1X1.
 
 000     000 <br>
--00     I00 <br>
+-00     #00 <br>
 000     000 <br>
 
 ### D : RIGHT
@@ -52,7 +52,7 @@ La hitbox du personnage fait 1 bloc de large et 2 de haut.
 - La hitbox du personnage diminue et passe à 1X1.
 
 000     000 <br>
-00-     00I <br>
+00-     00# <br>
 000     000 <br>
 
 ### S : SLIDE
@@ -61,7 +61,7 @@ La hitbox du personnage fait 1 bloc de large et 2 de haut.
 
 000     000 <br>
 000     000 <br>
----     -I- <br>
+---     -#- <br>
 
 ### BONUS
 - Un bonus peut être attrapé en rentrant en colission avec lui, augmentant le palier de vitesse du joueur et de la musique, donc de la difficulté.
