@@ -1,5 +1,7 @@
 # FLOW
 
+*LATBI Rendy COURBIER Raphaël AMBROISE Aurélien*
+
 ## Pitch :
 
 Flow est un Runner 3D die and retry. En vue troisième personne, le joueur incarne personnage qui se déplace dans une ville. Dans cette dernière, il doit terminer le plus rapidement possible un niveau, son score final étant basé dessus. Le joueur à la possibilité de se déplacer dans 3 couloirs et sur 3 hauteurs. La vitesse du jeu s’accélère quand le joueur récupère un bonus, il n’y a pas d’accélération mais un système de palier de vitesse et la distance entre les obstacles est rythmée et accompagnée de la musique.
@@ -18,7 +20,7 @@ Flow est un Runner 3D die and retry. En vue troisième personne, le joueur incar
 
 ## Conditions de victoire et défaites:
 - Le joueur gagne dès qu'il finit le niveau.
-- Le joueur perd dès qu'il n'a plus de points de vie qu'il perd en heurtant un osbtacle.
+- Le joueur perd dès qu'il n'a plus de points de vie.
 
 ## Commandes et Features :
 CORE GAMEPLAY:
@@ -66,6 +68,10 @@ La hitbox du personnage fait 1 bloc de large et 2 de haut.
 ### BONUS
 - Un bonus peut être attrapé en rentrant en colission avec lui, augmentant le palier de vitesse du joueur et de la musique, donc de la difficulté.
 
+### OBSTACLES
+- En heurtant un osbtacle, le joueur perd 1 vie.
+- En heurtant un osbtacle, le joueur perd X paliers de vitesse.
+
 ## Divers :
 ### MENU PRINCIPAL :
 - PLAY
@@ -74,3 +80,9 @@ La hitbox du personnage fait 1 bloc de large et 2 de haut.
 ### ECRAN DE FIN :
 - "YOU WON ! SCORE : 10000" / "GAME OVER"
 - PLAY AGAIN / QUIT
+
+## Répartition des tâches :
+- Aurélien : Programmation : Gestion des collisions et vitesse du jeu, bonus
+- Raphaël : Programmation : Génération procédurale des Obstacles
+- Rendy : Programmation : Player Controller
+- Nous travaillons tous sur l'aspect Game/Level Design et sur l'aspect Programmation
