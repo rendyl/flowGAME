@@ -25,44 +25,43 @@ CORE GAMEPLAY:
 L'espace de jeu se compose d'un tableau de 3X3.
 La hitbox du personnage fait 1 bloc de large et 2 de haut.
 
----     ---
----     -I- 
----     -I-    <= Personnage.
+---     --- <br>
+---     -I- <br>
+---     -I- <= Personnage. <br>
 
 ### Z : JUMP
 - La touche Z permet au joueur de sauter par dessus de certains obstacles
 - La hitbox du personnage diminue et passe à 1X1.
 
----     -I-
-000     000 
-000     000 
+---     -I- <br>
+000     000 <br>
+000     000 <br>
 
 ### Q : LEFT
 - La touche Q permet au joueur de se déplacer d'un couloir vers la gauche
 - Si le joueur est sur le couloir le plus à gauche, il se mettra à courir sur le mur.
 - La hitbox du personnage diminue et passe à 1X1.
 
-000     000
--00     I00 
-000     000
+000     000 <br>
+-00     I00 <br>
+000     000 <br>
 
 ### D : RIGHT
 - La touche D permet au joueur de se déplacer d'un couloir vers la droite
 - Si le joueur est sur le couloir le plus à droite, il se mettra à courir sur le mur.
 - La hitbox du personnage diminue et passe à 1X1.
 
-000     000
-00-     00I 
-000     000
+000     000 <br>
+00-     00I <br>
+000     000 <br>
 
 ### S : SLIDE
 - La touche S permet au joueur de glisser en dessous de certains obstacles
 - La hitbox du personnage diminue et passe à 1X1.
 
-
-000     000
-000     000 
----     -I-
+000     000 <br>
+000     000 <br>
+---     -I- <br>
 
 ### BONUS
 - Un bonus peut être attrapé en rentrant en colission avec lui, augmentant le palier de vitesse du joueur et de la musique, donc de la difficulté.
