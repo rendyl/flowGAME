@@ -24,16 +24,16 @@ Flow est un Runner 3D die and retry. En vue troisième personne, le joueur incar
 
 ## Commandes et Features :
 ### CORE GAMEPLAY :
-L'espace de jeu se compose d'un tableau de 3X3.
+L'espace de jeu se compose d'un tableau de 3x3.
 La hitbox du personnage fait 1 bloc de large et 2 de haut.
 
 ---     --- <br>
 ---     -#- <br>
----     -#- <= Personnage. <br>
+---     -#- < **Personnage** <br>
 
 ### Z : JUMP
-- La touche Z permet au joueur de sauter par dessus de certains obstacles
-- La hitbox du personnage diminue et passe à 1X1.
+- La touche Z permet au joueur de sauter au dessus de certains obstacles
+- La hitbox du personnage diminue et passe à 1x1.
 
 ---     -#- <br>
 000     000 <br>
@@ -42,7 +42,7 @@ La hitbox du personnage fait 1 bloc de large et 2 de haut.
 ### Q : LEFT
 - La touche Q permet au joueur de se déplacer d'un couloir vers la gauche
 - Si le joueur est sur le couloir le plus à gauche, il se mettra à courir sur le mur.
-- La hitbox du personnage diminue et passe à 1X1.
+- La hitbox du personnage diminue et passe à 1x1.
 
 000     000 <br>
 -00     #00 <br>
@@ -51,7 +51,7 @@ La hitbox du personnage fait 1 bloc de large et 2 de haut.
 ### D : RIGHT
 - La touche D permet au joueur de se déplacer d'un couloir vers la droite
 - Si le joueur est sur le couloir le plus à droite, il se mettra à courir sur le mur.
-- La hitbox du personnage diminue et passe à 1X1.
+- La hitbox du personnage diminue et passe à 1x1.
 
 000     000 <br>
 00-     00# <br>
@@ -59,7 +59,7 @@ La hitbox du personnage fait 1 bloc de large et 2 de haut.
 
 ### S : SLIDE
 - La touche S permet au joueur de glisser en dessous de certains obstacles
-- La hitbox du personnage diminue et passe à 1X1.
+- La hitbox du personnage diminue et passe à 1x1.
 
 000     000 <br>
 000     000 <br>
