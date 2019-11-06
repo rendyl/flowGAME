@@ -23,7 +23,7 @@ Flow est un Runner 3D die and retry. En vue troisième personne, le joueur incar
 - Le joueur perd dès qu'il n'a plus de points de vie.
 
 ## Commandes et Features :
-CORE GAMEPLAY:
+### CORE GAMEPLAY :
 L'espace de jeu se compose d'un tableau de 3X3.
 La hitbox du personnage fait 1 bloc de large et 2 de haut.
 
