@@ -23,3 +23,12 @@ Le joueur perd s'il se prend un obstacle ! > die and retry
 ### D : RIGHT
 - La touche D permet au joueur de se déplacer d'un couloir vers la droite
 - Si le joueur est sur le couloir le plus à droite, il se mettra à courir sur le mur
+
+## Commandes :
+### MENU PRINCIPAL :
+- PLAY
+- QUIT
+
+### ECRAN DE FIN :
+- "YOU WON ! SCORE : 10000" / "GAME OVER"
+- PLAY AGAIN / QUIT
