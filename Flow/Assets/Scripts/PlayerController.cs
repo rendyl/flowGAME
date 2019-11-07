@@ -5,35 +5,139 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    private bool wallRunning;
+
+    public float timeJUMP;
+    public float timeSLIDE;
+    public float timeWALLRIDE;
+
+    private bool wallRide;
+    private bool jumping;
+    private bool sliding;
+
+    private float timeWallRide;
+    private float timeJump;
+    private float timeSlide;
 
     // Start is called before the first frame update
     void Start()
     {
-        wallRunning = false;
+        timeWallRide = 0f;
+        wallRide = false;
+
+        timeJump = 0f;
+        jumping = false;
+
+        timeSlide = 0f;
+        sliding = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        // Wall Ride
+        if (timeWallRide > 0f)
         {
-            if (transform.position.x > -0.5) transform.position -= Vector3.right;
-            else
+            timeWallRide -= Time.deltaTime;
+
+        }
+        else
+        {
+            if (wallRide)
             {
-                wallRunning = true;
-                transform.localScale = new Vector3(transform.localScale.x, 0.5f * transform.localScale.y, transform.localScale.z);
+                wallRide = false;
+                transform.position -= transform.up * 0.5f;
+                transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
             }
         }
+
+        // Jump
+        if (timeJump > 0f)
+        {
+            timeJump -= Time.deltaTime;
+
+        }
+        else
+        {
+            if(jumping)
+            {
+                jumping = false;
+                transform.position -= transform.up * 1.5f;
+                transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+            }
+        }
+
+        // Slide
+        if (timeSlide > 0f)
+        {
+            timeSlide -= Time.deltaTime;
+
+        }
+        else
+        {
+            if (sliding)
+            {
+                sliding = false;
+                transform.position += transform.up * 0.5f;
+                transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if(!jumping && !wallRide)
+            {
+                jumping = true;
+                timeJump = timeJUMP;
+                transform.position += transform.up * 1.5f;
+                transform.localScale = new Vector3(0.9f, 0.45f, 0.9f);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (!sliding && !wallRide)
+            {
+                sliding = true;
+                timeSlide = timeSLIDE;
+                transform.position -= transform.up * 0.5f;
+                transform.localScale = new Vector3(0.9f, 0.45f, 0.9f);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (!wallRide)
+            {
+                if (transform.position.x > -0.5) transform.position -= Vector3.right;
+                else
+                {
+                    wallRide = true;
+                    timeWallRide = timeWALLRIDE;
+                    transform.localScale = new Vector3(0.9f, 0.45f, 0.9f);
+                    transform.position += transform.up * 0.5f;
+                }
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (transform.position.x < 0.5) transform.position += Vector3.right;
-            else
+            if (!wallRide)
             {
-                wallRunning = true;
-                transform.localScale = new Vector3(transform.localScale.x, 0.5f * transform.localScale.y, transform.localScale.z);
+                if (transform.position.x < 0.5) transform.position += Vector3.right;
+                else
+                {
+                    if (!wallRide)
+                    {
+                        wallRide = true;
+                        timeWallRide = timeWALLRIDE;
+                        transform.localScale = new Vector3(transform.localScale.x, 0.5f * transform.localScale.y, transform.localScale.z);
+                        transform.position += transform.up * 0.5f;
+                    }
+                }
             }
         }
+
+
         transform.position += Vector3.forward * speed * Time.deltaTime;
     }
 
