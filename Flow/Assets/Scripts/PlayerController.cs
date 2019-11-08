@@ -112,24 +112,26 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if(!jumping && !wallRide)
+            if(!jumping && !wallRide && !sliding)
             {
                 jumping = true;
                 timeJump = timeJUMP;
                 bc.center += transform.up * 1.5f;
                 bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+                anim.ResetTrigger("Jumping");
                 anim.SetTrigger("Jumping");
             }
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (!sliding && !wallRide)
+            if (!sliding && !wallRide && !jumping)
             {
                 sliding = true;
                 timeSlide = timeSLIDE;
                 bc.center -= transform.up;
                 bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+                anim.ResetTrigger("Sliding");
                 anim.SetTrigger("Sliding");
             }
         }
@@ -141,11 +143,15 @@ public class PlayerController : MonoBehaviour
                 if (transform.position.x > -0.5) transform.position -= Vector3.right;
                 else
                 {
-                    wallRide = true;
-                    timeWallRide = timeWALLRIDE;
-                    bc.center += transform.up * 0.5f;
-                    bc.size = new Vector3(0.9f, 0.9f, 0.9f);
-                    anim.SetTrigger("WallRunningL");
+                    if(!jumping && !sliding)
+                    {
+                        wallRide = true;
+                        timeWallRide = timeWALLRIDE;
+                        bc.center += transform.up * 0.5f;
+                        bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+                        anim.ResetTrigger("WallRunningL");
+                        anim.SetTrigger("WallRunningL");
+                    }
                 }
             }
         }
@@ -157,11 +163,15 @@ public class PlayerController : MonoBehaviour
                 if (transform.position.x < 0.5) transform.position += Vector3.right;
                 else
                 {
-                    wallRide = true;
-                    timeWallRide = timeWALLRIDE;
-                    bc.center += transform.up * 0.5f;
-                    bc.size = new Vector3(0.9f, 0.9f, 0.9f);
-                    anim.SetTrigger("WallRunningR");
+                    if (!jumping && !sliding)
+                    {
+                        wallRide = true;
+                        timeWallRide = timeWALLRIDE;
+                        bc.center += transform.up * 0.5f;
+                        bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+                        anim.ResetTrigger("WallRunningR");
+                        anim.SetTrigger("WallRunningR");
+                    }
                 }
             }
         }
