@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,18 +14,26 @@ public class PlayerController : MonoBehaviour
     private bool wallRide;
     private bool jumping;
     private bool sliding;
+    private bool moveLeft;
+    private bool moveRight;
 
     private float timeWallRide;
     private float timeJump;
     private float timeSlide;
 
+    private Vector3 posToMove;
+
+    public float div;
+
     private Animator anim;
     private BoxCollider bc;
+
+    private Vector3 lastPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        lastPos = transform.position;   
 
         bc = GetComponent<BoxCollider>();
         anim = GetComponentInChildren<Animator>();
@@ -38,6 +47,9 @@ public class PlayerController : MonoBehaviour
 
         timeSlide = 0f;
         sliding = false;
+
+        moveLeft = false;
+        moveRight = false;
     }
 
     static public AnimationClip GetAnimationClip(Animator anim, string name)
@@ -65,6 +77,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lastPos = transform.position;
+
+        if(moveLeft || moveRight)
+        {
+            transform.position += (Convert.ToInt32(moveLeft) * new Vector3(-1 / div, 0, 0)) + (Convert.ToInt32(moveRight) * new Vector3(1 / div, 0, 0));
+            if (moveRight && transform.position.x > posToMove.x)
+            {
+                transform.position = new Vector3(posToMove.x, transform.position.y, transform.position.z);
+                moveRight = false;
+            }
+            if (moveLeft && transform.position.x < posToMove.x)
+            {
+                transform.position = new Vector3(posToMove.x, transform.position.y, transform.position.z);
+                moveLeft = false;
+            }
+        }
+
         // Wall Ride
         if (timeWallRide > 0f)
         {
@@ -140,10 +169,14 @@ public class PlayerController : MonoBehaviour
         {
             if (!wallRide)
             {
-                if (transform.position.x > -0.5) transform.position -= Vector3.right;
+                if (transform.position.x > -0.5)
+                {
+                    moveLeft = true;
+                    posToMove = transform.position - Vector3.right;
+                }
                 else
                 {
-                    if(!jumping && !sliding)
+                    if (!jumping && !sliding)
                     {
                         wallRide = true;
                         timeWallRide = timeWALLRIDE;
@@ -160,7 +193,11 @@ public class PlayerController : MonoBehaviour
         {
             if (!wallRide)
             {
-                if (transform.position.x < 0.5) transform.position += Vector3.right;
+                if (transform.position.x < 0.5)
+                {
+                    moveRight = true;
+                    posToMove = transform.position + Vector3.right;
+                }
                 else
                 {
                     if (!jumping && !sliding)
@@ -175,8 +212,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-
-
         transform.position += Vector3.forward * speed * Time.deltaTime;
     }
 
@@ -185,8 +220,9 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.gameObject.CompareTag("Obstacle"))
         {
             speed = 0;
+            anim.SetTrigger("Death");
+            transform.position = lastPos;
             Debug.Log("dead");
-            Application.Quit();
         }
     }
 }
