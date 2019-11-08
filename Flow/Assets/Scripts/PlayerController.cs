@@ -18,9 +18,18 @@ public class PlayerController : MonoBehaviour
     private float timeJump;
     private float timeSlide;
 
+    private Animator anim;
+    private BoxCollider bc;
+
     // Start is called before the first frame update
     void Start()
     {
+        
+
+        bc = GetComponent<BoxCollider>();
+        anim = GetComponentInChildren<Animator>();
+        AnimationClip animJump = GetAnimationClip(anim, "Jumping");
+
         timeWallRide = 0f;
         wallRide = false;
 
@@ -30,6 +39,28 @@ public class PlayerController : MonoBehaviour
         timeSlide = 0f;
         sliding = false;
     }
+
+    static public AnimationClip GetAnimationClip(Animator anim, string name)
+    {
+        if (anim) return null; // no animator
+
+        foreach (AnimationClip clip in anim.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name == name)
+            {
+                return clip;
+            }
+        }
+        return null; // no clip by that name
+    }
+
+
+    void resetCollider()
+    {
+        bc.center = new Vector3(0, 1, 0);
+        bc.size = new Vector3(0.9f, 1.8f, 0.9f);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -45,8 +76,7 @@ public class PlayerController : MonoBehaviour
             if (wallRide)
             {
                 wallRide = false;
-                transform.position -= transform.up * 0.5f;
-                transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+                resetCollider();
             }
         }
 
@@ -61,8 +91,7 @@ public class PlayerController : MonoBehaviour
             if(jumping)
             {
                 jumping = false;
-                transform.position -= transform.up * 1.5f;
-                transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+                resetCollider();
             }
         }
 
@@ -77,8 +106,7 @@ public class PlayerController : MonoBehaviour
             if (sliding)
             {
                 sliding = false;
-                transform.position += transform.up * 0.5f;
-                transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+                resetCollider();
             }
         }
 
@@ -88,8 +116,9 @@ public class PlayerController : MonoBehaviour
             {
                 jumping = true;
                 timeJump = timeJUMP;
-                transform.position += transform.up * 1.5f;
-                transform.localScale = new Vector3(0.9f, 0.45f, 0.9f);
+                bc.center += transform.up * 1.5f;
+                bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+                anim.SetTrigger("Jumping");
             }
         }
 
@@ -99,8 +128,9 @@ public class PlayerController : MonoBehaviour
             {
                 sliding = true;
                 timeSlide = timeSLIDE;
-                transform.position -= transform.up * 0.5f;
-                transform.localScale = new Vector3(0.9f, 0.45f, 0.9f);
+                bc.center -= transform.up;
+                bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+                anim.SetTrigger("Sliding");
             }
         }
 
@@ -113,8 +143,9 @@ public class PlayerController : MonoBehaviour
                 {
                     wallRide = true;
                     timeWallRide = timeWALLRIDE;
-                    transform.localScale = new Vector3(0.9f, 0.45f, 0.9f);
-                    transform.position += transform.up * 0.5f;
+                    bc.center += transform.up * 0.5f;
+                    bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+                    anim.SetTrigger("WallRunningL");
                 }
             }
         }
@@ -126,13 +157,11 @@ public class PlayerController : MonoBehaviour
                 if (transform.position.x < 0.5) transform.position += Vector3.right;
                 else
                 {
-                    if (!wallRide)
-                    {
-                        wallRide = true;
-                        timeWallRide = timeWALLRIDE;
-                        transform.localScale = new Vector3(transform.localScale.x, 0.5f * transform.localScale.y, transform.localScale.z);
-                        transform.position += transform.up * 0.5f;
-                    }
+                    wallRide = true;
+                    timeWallRide = timeWALLRIDE;
+                    bc.center += transform.up * 0.5f;
+                    bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+                    anim.SetTrigger("WallRunningR");
                 }
             }
         }
