@@ -173,9 +173,9 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                if (!wallRide)
+                if (!wallRide && !moveRight && !moveLeft)
                 {
-                    if (transform.position.x > -0.5 && !moveRight && !moveLeft)
+                    if (transform.position.x > -0.5)
                     {
                         moveLeft = true;
                         posToMove = transform.position - Vector3.right;
@@ -197,9 +197,9 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.D))
             {
-                if (!wallRide)
+                if (!wallRide && !moveRight && !moveLeft)
                 {
-                    if (transform.position.x < 0.5 && !moveRight && !moveLeft)
+                    if (transform.position.x < 0.5)
                     {
                         moveRight = true;
                         posToMove = transform.position + Vector3.right;
