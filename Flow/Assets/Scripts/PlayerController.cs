@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -217,6 +219,13 @@ public class PlayerController : MonoBehaviour
                 }
             }
             transform.position += Vector3.forward * speed * Time.deltaTime;
+        }
+        else
+        {
+            if(Input.GetKeyDown(KeyCode.Return))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
 
