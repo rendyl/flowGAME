@@ -57,21 +57,6 @@ public class PlayerController : MonoBehaviour
         alive = true;
     }
 
-    static public AnimationClip GetAnimationClip(Animator anim, string name)
-    {
-        if (anim) return null; // no animator
-
-        foreach (AnimationClip clip in anim.runtimeAnimatorController.animationClips)
-        {
-            if (clip.name == name)
-            {
-                return clip;
-            }
-        }
-        return null; // no clip by that name
-    }
-
-
     void resetCollider()
     {
         bc.center = new Vector3(0, 1, 0);
@@ -85,21 +70,6 @@ public class PlayerController : MonoBehaviour
         lastPos = transform.position;
         if (alive)
         {
-            if (moveLeft || moveRight)
-            {
-                transform.position += (Convert.ToInt32(moveLeft) * new Vector3(-1 / div, 0, 0)) + (Convert.ToInt32(moveRight) * new Vector3(1 / div, 0, 0));
-                if (moveRight && transform.position.x > posToMove.x)
-                {
-                    transform.position = new Vector3(posToMove.x, transform.position.y, transform.position.z);
-                    moveRight = false;
-                }
-                if (moveLeft && transform.position.x < posToMove.x)
-                {
-                    transform.position = new Vector3(posToMove.x, transform.position.y, transform.position.z);
-                    moveLeft = false;
-                }
-            }
-
             // Wall Ride
             if (timeWallRide > 0f)
             {
@@ -145,84 +115,102 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (moveLeft || moveRight)
             {
-                if (!jumping && !wallRide && !sliding)
+                transform.position += (Convert.ToInt32(moveLeft) * new Vector3(-1 / div, 0, 0)) + (Convert.ToInt32(moveRight) * new Vector3(1 / div, 0, 0));
+                if (moveRight && transform.position.x > posToMove.x)
                 {
-                    jumping = true;
-                    timeJump = timeJUMP;
-                    bc.center += transform.up * 1.5f;
-                    bc.size = new Vector3(0.9f, 0.9f, 0.9f);
-                    anim.ResetTrigger("Jumping");
-                    anim.SetTrigger("Jumping");
+                    transform.position = new Vector3(posToMove.x, transform.position.y, transform.position.z);
+                    moveRight = false;
+                }
+                if (moveLeft && transform.position.x < posToMove.x)
+                {
+                    transform.position = new Vector3(posToMove.x, transform.position.y, transform.position.z);
+                    moveLeft = false;
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.S))
+            if (!wallRide)
             {
-                if (!sliding && !wallRide && !jumping)
+                if (Input.GetKeyDown(KeyCode.Z))
                 {
-                    sliding = true;
-                    timeSlide = timeSLIDE;
-                    bc.center -= transform.up;
-                    bc.size = new Vector3(0.9f, 0.9f, 0.9f);
-                    anim.ResetTrigger("Sliding");
-                    anim.SetTrigger("Sliding");
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                if (!wallRide && !moveRight && !moveLeft)
-                {
-                    if (transform.position.x > -0.5)
+                    if (!jumping && !wallRide && !sliding)
                     {
-                        moveLeft = true;
-                        posToMove = transform.position - Vector3.right;
+                        jumping = true;
+                        timeJump = timeJUMP;
+                        bc.center += transform.up * 1.5f;
+                        bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+                        anim.ResetTrigger("Jumping");
+                        anim.SetTrigger("Jumping");
                     }
-                    else
+                }
+
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    if (!sliding && !wallRide && !jumping)
                     {
-                        if (!jumping && !sliding)
+                        sliding = true;
+                        timeSlide = timeSLIDE;
+                        bc.center -= transform.up;
+                        bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+                        anim.ResetTrigger("Sliding");
+                        anim.SetTrigger("Sliding");
+                    }
+                }
+
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    if (!wallRide && !moveRight && !moveLeft)
+                    {
+                        if (transform.position.x > -0.5)
                         {
-                            wallRide = true;
-                            timeWallRide = timeWALLRIDE;
-                            bc.center += transform.up * 0.5f;
-                            bc.size = new Vector3(0.9f, 0.9f, 0.9f);
-                            anim.ResetTrigger("WallRunningL");
-                            anim.SetTrigger("WallRunningL");
+                            moveLeft = true;
+                            posToMove = transform.position - Vector3.right;
+                        }
+                        else
+                        {
+                            if (!jumping && !sliding)
+                            {
+                                wallRide = true;
+                                timeWallRide = timeWALLRIDE;
+                                bc.center += transform.up * 0.5f;
+                                bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+                                anim.ResetTrigger("WallRunningL");
+                                anim.SetTrigger("WallRunningL");
+                            }
                         }
                     }
                 }
-            }
 
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                if (!wallRide && !moveRight && !moveLeft)
+                if (Input.GetKeyDown(KeyCode.D))
                 {
-                    if (transform.position.x < 0.5)
+                    if (!wallRide && !moveRight && !moveLeft)
                     {
-                        moveRight = true;
-                        posToMove = transform.position + Vector3.right;
-                    }
-                    else
-                    {
-                        if (!jumping && !sliding)
+                        if (transform.position.x < 0.5)
                         {
-                            wallRide = true;
-                            timeWallRide = timeWALLRIDE;
-                            bc.center += transform.up * 0.5f;
-                            bc.size = new Vector3(0.9f, 0.9f, 0.9f);
-                            anim.ResetTrigger("WallRunningR");
-                            anim.SetTrigger("WallRunningR");
+                            moveRight = true;
+                            posToMove = transform.position + Vector3.right;
+                        }
+                        else
+                        {
+                            if (!jumping && !sliding)
+                            {
+                                wallRide = true;
+                                timeWallRide = timeWALLRIDE;
+                                bc.center += transform.up * 0.5f;
+                                bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+                                anim.ResetTrigger("WallRunningR");
+                                anim.SetTrigger("WallRunningR");
+                            }
                         }
                     }
-                }
+                }  
             }
             transform.position += Vector3.forward * speed * Time.deltaTime;
         }
         else
         {
-            if(Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
