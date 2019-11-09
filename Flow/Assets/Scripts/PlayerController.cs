@@ -63,10 +63,14 @@ public class PlayerController : MonoBehaviour
         bc.size = new Vector3(0.9f, 1.8f, 0.9f);
     }
 
-
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        
         lastPos = transform.position;
         if (alive)
         {
@@ -165,7 +169,16 @@ public class PlayerController : MonoBehaviour
                         if (transform.position.x > -0.5)
                         {
                             moveLeft = true;
-                            posToMove = transform.position - Vector3.right;
+
+                            if (moveRight)
+                            {
+                                moveRight = false;
+                                posToMove = posToMove - Vector3.right;
+                            }
+                            else
+                            {
+                                posToMove = transform.position - Vector3.right;
+                            }
                         }
                         else
                         {
@@ -184,12 +197,21 @@ public class PlayerController : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.D))
                 {
-                    if (!wallRide && !moveRight && !moveLeft)
+                    if (!wallRide && !moveRight)
                     {
                         if (transform.position.x < 0.5)
                         {
                             moveRight = true;
-                            posToMove = transform.position + Vector3.right;
+
+                            if (moveLeft)
+                            {
+                                moveLeft = false;
+                                posToMove = posToMove + Vector3.right;
+                            }
+                            else
+                            {
+                                posToMove = transform.position + Vector3.right;
+                            }
                         }
                         else
                         {
