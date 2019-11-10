@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private bool moveRight;
 
     private bool alive;
+    private bool win;
 
     private float timeWallRide;
     private float timeJump;
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lastPos = transform.position;   
+        lastPos = transform.position;
 
         bc = GetComponent<BoxCollider>();
         anim = GetComponentInChildren<Animator>();
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
         moveRight = false;
 
         alive = true;
+        win = false;
     }
 
     void resetCollider()
@@ -66,11 +68,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
-        
+
         lastPos = transform.position;
         if (alive)
         {
@@ -148,8 +150,7 @@ public class PlayerController : MonoBehaviour
                         anim.SetTrigger("Jumping");
                     }
                 }
-
-                if (Input.GetKeyDown(KeyCode.S))
+                else if (Input.GetKeyDown(KeyCode.S))
                 {
                     if (!sliding && !wallRide && !jumping)
                     {
@@ -161,8 +162,7 @@ public class PlayerController : MonoBehaviour
                         anim.SetTrigger("Sliding");
                     }
                 }
-
-                if (Input.GetKeyDown(KeyCode.Q))
+                else if (Input.GetKeyDown(KeyCode.Q))
                 {
                     if (!wallRide && !moveRight && !moveLeft)
                     {
@@ -194,10 +194,9 @@ public class PlayerController : MonoBehaviour
                         }
                     }
                 }
-
-                if (Input.GetKeyDown(KeyCode.D))
+                else if (Input.GetKeyDown(KeyCode.D))
                 {
-                    if (!wallRide && !moveRight)
+                    if (!wallRide && !moveRight && !moveLeft)
                     {
                         if (transform.position.x < 0.5)
                         {
@@ -226,7 +225,7 @@ public class PlayerController : MonoBehaviour
                             }
                         }
                     }
-                }  
+                }
             }
             transform.position += Vector3.forward * speed * Time.deltaTime;
         }
