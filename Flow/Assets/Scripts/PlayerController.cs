@@ -146,7 +146,8 @@ public class PlayerController : MonoBehaviour
 
             if (!wallRide)
             {
-                if (Input.GetKeyDown(KeyCode.Z))
+                //if (Input.GetKeyDown(KeyCode.Z))
+                if(Input.GetButtonDown("Jump"))
                 {
                     if (!jumping && !wallRide && !sliding)
                     {
@@ -158,7 +159,9 @@ public class PlayerController : MonoBehaviour
                         anim.SetTrigger("Jumping");
                     }
                 }
-                else if (Input.GetKeyDown(KeyCode.S))
+
+                //if (Input.GetKeyDown(KeyCode.S))
+                if(Input.GetButtonDown("Slide"))
                 {
                     if (!sliding && !wallRide && !jumping)
                     {
@@ -170,7 +173,9 @@ public class PlayerController : MonoBehaviour
                         anim.SetTrigger("Sliding");
                     }
                 }
-                else if (Input.GetKeyDown(KeyCode.Q))
+
+                //if (Input.GetKeyDown(KeyCode.Q))
+                if(Input.GetButtonDown("Gauche"))
                 {
                     if (!wallRide && !moveRight && !moveLeft)
                     {
@@ -202,7 +207,9 @@ public class PlayerController : MonoBehaviour
                         }
                     }
                 }
-                else if (Input.GetKeyDown(KeyCode.D))
+
+                //if (Input.GetKeyDown(KeyCode.D))
+                if(Input.GetButtonDown("Droite"))
                 {
                     if (!wallRide && !moveRight && !moveLeft)
                     {
@@ -254,11 +261,11 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("Death");
             transform.position = lastPos;
             Debug.Log("dead");
-        }
+        }
         if (other.gameObject.gameObject.CompareTag("Bonus"))
         {
             speedMultiplier += 2;
-            Debug.Log("Power up");
-        }
-    }
+            Debug.Log("Power up");
+        }
+    }
 }
