@@ -18,6 +18,7 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speed = playerToTarget.GetComponent<PlayerController>().baseSpeed * playerToTarget.GetComponent<PlayerController>().speedMultiplier;
         transform.position = Vector3.Lerp(transform.position, playerToTarget.transform.position - offset, speed * Time.deltaTime);
     }
 }

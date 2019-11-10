@@ -2630,21 +2630,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -5640257417081746162, guid: 02239e20402cbd34d957dec616205a44,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 47.456684
-      objectReference: {fileID: 0}
-    - target: {fileID: -5640257417081746162, guid: 02239e20402cbd34d957dec616205a44,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 6.957226
-      objectReference: {fileID: 0}
-    - target: {fileID: -5640257417081746162, guid: 02239e20402cbd34d957dec616205a44,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 7.002833
-      objectReference: {fileID: 0}
     - target: {fileID: -80321272340095036, guid: 02239e20402cbd34d957dec616205a44,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2694,6 +2679,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.000056093944
+      objectReference: {fileID: 0}
+    - target: {fileID: -5640257417081746162, guid: 02239e20402cbd34d957dec616205a44,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 47.456684
+      objectReference: {fileID: 0}
+    - target: {fileID: -5640257417081746162, guid: 02239e20402cbd34d957dec616205a44,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 6.957226
+      objectReference: {fileID: 0}
+    - target: {fileID: -5640257417081746162, guid: 02239e20402cbd34d957dec616205a44,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 7.002833
       objectReference: {fileID: 0}
     - target: {fileID: -8857704585808833336, guid: 02239e20402cbd34d957dec616205a44,
         type: 3}
@@ -4130,7 +4130,7 @@ MonoBehaviour:
   textPlayOrange: {fileID: 1755911282}
   textQuitBlue: {fileID: 2085591018}
   textQuitOrange: {fileID: 895328506}
-  transformRotate: 0
+  speedRotate: 10
 --- !u!1 &2046372928
 GameObject:
   m_ObjectHideFlags: 0

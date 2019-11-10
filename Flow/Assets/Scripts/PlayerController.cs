@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    private float speed;
+    public float speedMultiplier;
+    public float baseSpeed;
 
     public float timeJUMP;
     public float timeSLIDE;
@@ -20,7 +22,6 @@ public class PlayerController : MonoBehaviour
     private bool moveRight;
 
     private bool alive;
-    private bool win;
 
     private float timeWallRide;
     private float timeJump;
@@ -43,6 +44,14 @@ public class PlayerController : MonoBehaviour
         bc = GetComponent<BoxCollider>();
         anim = GetComponentInChildren<Animator>();
 
+        anim.SetFloat("speedMultiplier", speedMultiplier);
+        speed = baseSpeed * speedMultiplier;
+        timeJUMP /= speedMultiplier;
+        timeSLIDE /= speedMultiplier;
+        timeWALLRIDE /= speedMultiplier;
+        div /= speedMultiplier;
+
+
         timeWallRide = 0f;
         wallRide = false;
 
@@ -56,7 +65,6 @@ public class PlayerController : MonoBehaviour
         moveRight = false;
 
         alive = true;
-        win = false;
     }
 
     void resetCollider()

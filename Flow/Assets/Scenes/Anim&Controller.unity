@@ -9600,21 +9600,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -5640257417081746162, guid: 02239e20402cbd34d957dec616205a44,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 48.620007
-      objectReference: {fileID: 0}
-    - target: {fileID: -5640257417081746162, guid: 02239e20402cbd34d957dec616205a44,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 3.2065935
-      objectReference: {fileID: 0}
-    - target: {fileID: -5640257417081746162, guid: 02239e20402cbd34d957dec616205a44,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.3570614
-      objectReference: {fileID: 0}
     - target: {fileID: -80321272340095036, guid: 02239e20402cbd34d957dec616205a44,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9644,6 +9629,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -23.500046
+      objectReference: {fileID: 0}
+    - target: {fileID: -5640257417081746162, guid: 02239e20402cbd34d957dec616205a44,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 48.620007
+      objectReference: {fileID: 0}
+    - target: {fileID: -5640257417081746162, guid: 02239e20402cbd34d957dec616205a44,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 3.2065935
+      objectReference: {fileID: 0}
+    - target: {fileID: -5640257417081746162, guid: 02239e20402cbd34d957dec616205a44,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.3570614
       objectReference: {fileID: 0}
     - target: {fileID: -8857704585808833336, guid: 02239e20402cbd34d957dec616205a44,
         type: 3}
@@ -11719,9 +11719,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e53dd3942bcd84fb118960c83df999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  timeJUMP: 0.5
-  timeSLIDE: 0.5
+  speedMultiplier: 1
+  baseSpeed: 10
+  timeJUMP: 0.6
+  timeSLIDE: 0.6
   timeWALLRIDE: 0.6
   div: 10
 --- !u!1 &1399499642
@@ -16588,7 +16589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049543236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 2, z: -57}
+  m_LocalPosition: {x: -0, y: 2, z: -82}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children: []
   m_Father: {fileID: 0}

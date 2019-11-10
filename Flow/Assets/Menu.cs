@@ -14,8 +14,9 @@ public class Menu : MonoBehaviour
     public GameObject textQuitBlue;
     public GameObject textQuitOrange;
 
-    public float transformRotate;
+    private  float transformRotate;
 
+    public float speedRotate;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,7 @@ public class Menu : MonoBehaviour
         {   
             if (Input.GetAxis("Mouse X") != 0)
             {
-                transform.RotateAround(hips.transform.position, Vector3.up, 50*Input.GetAxis("Mouse X"));
+                transform.RotateAround(hips.transform.position, Vector3.up, speedRotate*Input.GetAxis("Mouse X"));
             }
         }
 
