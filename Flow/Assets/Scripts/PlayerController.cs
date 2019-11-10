@@ -255,5 +255,10 @@ public class PlayerController : MonoBehaviour
             transform.position = lastPos;
             Debug.Log("dead");
         }
+        if (other.gameObject.gameObject.CompareTag("Bonus"))
+        {
+            speedMultiplier += 2;
+            Debug.Log("Power up");
+        }
     }
 }
