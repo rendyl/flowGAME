@@ -2,14 +2,19 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed;
     public float speedMultiplier;
     public float baseSpeed;
+    public float speed;
+
+    public float baseTimeJUMP;
+    public float baseTimeSLIDE;
+    public float bastTimeWALLRIDE;
 
     public float timeJUMP;
     public float timeSLIDE;
@@ -29,7 +34,12 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 posToMove;
 
+    public float baseDiv;
     public float div;
+
+    public ParticleSystem psFoot1;
+    public ParticleSystem psFoot2;
+    public ParticleSystem psBack;
 
     private Animator anim;
     private BoxCollider bc;
@@ -44,13 +54,7 @@ public class PlayerController : MonoBehaviour
         bc = GetComponent<BoxCollider>();
         anim = GetComponentInChildren<Animator>();
 
-        anim.SetFloat("speedMultiplier", speedMultiplier);
-        speed = baseSpeed * speedMultiplier;
-        timeJUMP /= speedMultiplier;
-        timeSLIDE /= speedMultiplier;
-        timeWALLRIDE /= speedMultiplier;
-        div /= speedMultiplier;
-
+        updateSpeedMultiplier(speedMultiplier);
 
         timeWallRide = 0f;
         wallRide = false;
@@ -65,6 +69,17 @@ public class PlayerController : MonoBehaviour
         moveRight = false;
 
         alive = true;
+    }
+
+    void updateSpeedMultiplier(float value)
+    {
+        speedMultiplier = value;
+        anim.SetFloat("speedMultiplier", speedMultiplier);
+        speed = baseSpeed * speedMultiplier;
+        timeJUMP = baseTimeJUMP / speedMultiplier;
+        timeSLIDE = baseTimeSLIDE / speedMultiplier;
+        timeWALLRIDE = bastTimeWALLRIDE / speedMultiplier;
+        div = baseDiv / speedMultiplier;
     }
 
     void resetCollider()
@@ -264,8 +279,33 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.gameObject.CompareTag("Bonus"))
         {
-            speedMultiplier += 2;
-            Debug.Log("Power up");
+            updateSpeedMultiplier(speedMultiplier + 0.2f);
+            if (speed >= 12f)
+            {
+                if(!psFoot1.isPlaying)
+                {
+                    psFoot1.Play();
+                    psFoot2.Play();
+                }
+            }
+            if (speed >= 14f)
+            {
+                SerializedObject so = new SerializedObject(psBack);
+                if (!psBack.isPlaying)
+                {
+                    so.FindProperty("InitialModule.startColor.minColor").colorValue = new Color(0.2688679f, 0.6874771f, 1f, 1f);
+                    so.FindProperty("InitialModule.startColor.maxColor").colorValue = new Color(0.2688679f, 0.6874771f, 1f, 1f);
+                    so.ApplyModifiedProperties();
+                    psBack.Play();
+                }
+                if(speed >= 16f)
+                {
+                    so.FindProperty("InitialModule.startColor.minColor").colorValue = new Color(0.2688679f, 0.6874771f, 1f, 1f);
+                    so.FindProperty("InitialModule.startColor.maxColor").colorValue = new Color(1f, 0.3615f, 0f, 1f);
+                    so.ApplyModifiedProperties();
+                }
+            }
+            Debug.Log("Power up");
         }
     }
 }
