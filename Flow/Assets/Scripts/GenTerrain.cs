@@ -9,10 +9,10 @@ public class GenTerrain : MonoBehaviour
     public float TriggerDistance;
 
     public Vector3 startPoint;
-    public Vector3 currentPoint;
+    private Vector3 currentPoint;
 
     public GameObject joueur;
-    public Vector3 posJoueur;
+    private Vector3 posJoueur;
 
     private List<GameObject> obstacles;
 
@@ -59,7 +59,7 @@ public class GenTerrain : MonoBehaviour
         Instantiate(Resources.Load<GameObject>("Prefabs/Obs0"), currentPoint, Quaternion.identity);
 
         currentPoint += new Vector3(0, 0, 5f);
-        int index = Random.Range(1, nbObs);
+        int index = Random.Range(1, nbObs+1);
         Instantiate(Resources.Load<GameObject>("Prefabs/Obs"+index), currentPoint, Quaternion.identity);
     }
 }
