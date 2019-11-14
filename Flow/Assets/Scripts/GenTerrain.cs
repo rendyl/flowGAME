@@ -19,24 +19,6 @@ public class GenTerrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GameObject go = Resources.Load<GameObject>("Prefabs/Obs1");
-        //if (go == null)
-        //{
-        //    Debug.Log("Defaite");
-        //}
-        //else
-        //{
-        //    Debug.Log("Victoire");
-        //    Instantiate(go, currentPoint, Quaternion.identity);
-        //}
-        //obstacles.Add(go);
-        //obstacles.Add(go);
-        //for (int i = 0; i <= nbObs; i++)
-        //{
-        //    string path = "Prefabs/Obs";
-        //    Debug.Log(path);
-        //    obstacles.Add(Resources.Load<GameObject>(path));
-        //}
         currentPoint = startPoint;
     }
 
