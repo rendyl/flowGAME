@@ -17,14 +17,14 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        scoreText.text = "Score : 0";
+        scoreText.text = "0";
     }
 
     void Update()
     {
         if (scoreIncreasing) scoreCount += (pointsPerSecond * pc.speedMultiplier * Time.deltaTime);
 
-        scoreText.SetText("Score : " + Mathf.Round(scoreCount));
+        scoreText.SetText("" + Mathf.Round(scoreCount).ToString("000000000"));
         multiText.SetText("x" + pc.speedMultiplier);
     }
 }

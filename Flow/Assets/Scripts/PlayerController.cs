@@ -277,6 +277,7 @@ public class PlayerController : MonoBehaviour
         {
             alive = false;
             anim.SetTrigger("Death");
+            FindObjectOfType<ScoreManager>().scoreIncreasing = false;
             transform.position = lastPos;
             Debug.Log("dead");
         }
