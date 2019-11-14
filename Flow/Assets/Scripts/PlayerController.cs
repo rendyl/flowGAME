@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public ParticleSystem ps1;
+    public ParticleSystem ps2;
+
     public float speedMultiplier;
     public float baseSpeed;
     public float speed;
@@ -279,6 +282,10 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.gameObject.CompareTag("Bonus"))
         {
+            // ps1.Play();
+            // ps2.Play();
+
+            Destroy(other.gameObject);
             updateSpeedMultiplier(speedMultiplier + 0.2f);
             if (speed >= 12f)
             {
@@ -303,6 +310,8 @@ public class PlayerController : MonoBehaviour
                     so.FindProperty("InitialModule.startColor.minColor").colorValue = new Color(0.2688679f, 0.6874771f, 1f, 1f);
                     so.FindProperty("InitialModule.startColor.maxColor").colorValue = new Color(1f, 0.3615f, 0f, 1f);
                     so.ApplyModifiedProperties();
+                    // ps2.Play();
+                    // ps2.loop = true;
                 }
             }
             Debug.Log("Power up");
