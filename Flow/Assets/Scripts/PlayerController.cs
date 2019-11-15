@@ -275,6 +275,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.gameObject.CompareTag("Obstacle"))
         {
+            Debug.Log(this.gameObject.tag);
             alive = false;
             anim.SetTrigger("Death");
             FindObjectOfType<ScoreManager>().scoreIncreasing = false;

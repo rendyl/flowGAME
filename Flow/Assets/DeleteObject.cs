@@ -16,12 +16,13 @@ public class DeleteObject : MonoBehaviour
     void Update()
     {
         //transform.position = player.transform.position - player.transform.forward * -5;
+        //transform.position += Vector3.forward * player.GetComponent<PlayerController>().speed * Time.deltaTime;
     }
 
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
+        //Debug.Log(other.tag);
         Destroy(other.gameObject);
     }
 }
