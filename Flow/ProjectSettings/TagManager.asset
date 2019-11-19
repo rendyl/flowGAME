@@ -8,6 +8,8 @@ TagManager:
   - EndWall
   - Bonus
   - GarbageCollector
+  - ObstacleInvisible
+  - Exit
   layers:
   - Default
   - TransparentFX

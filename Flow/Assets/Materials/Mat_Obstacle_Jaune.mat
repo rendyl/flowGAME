@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: Mat_Obstacle_Jaune
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -73,5 +73,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.29803923, g: 0.60771215, b: 0.6784314, a: 1}
-    - _EmissionColor: {r: 0.27033645, g: 0.5982445, b: 0.7075472, a: 1}
+    - _Color: {r: 1, g: 0.55344296, b: 0, a: 1}
+    - _EmissionColor: {r: 0.8301887, g: 0.6284925, b: 0.05090782, a: 1}

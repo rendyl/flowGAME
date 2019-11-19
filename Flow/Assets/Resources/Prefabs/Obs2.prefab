@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2728393230769827457, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_TagString
+      value: ObstacleInvisible
+      objectReference: {fileID: 0}
     - target: {fileID: 7653563620611156411, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
@@ -75,7 +80,17 @@ PrefabInstance:
     - target: {fileID: 919610968815049568, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919610968815049568, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2305500075670836793, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_TagString
+      value: ObstacleInvisible
       objectReference: {fileID: 0}
     - target: {fileID: 394725969888213995, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
@@ -85,7 +100,17 @@ PrefabInstance:
     - target: {fileID: 4338573916121721066, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338573916121721066, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386133620347390028, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_TagString
+      value: ObstacleInvisible
       objectReference: {fileID: 0}
     - target: {fileID: 5970269433881912882, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
@@ -95,7 +120,17 @@ PrefabInstance:
     - target: {fileID: 2068196968190484630, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068196968190484630, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084754274644189126, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_TagString
+      value: ObstacleInvisible
       objectReference: {fileID: 0}
     - target: {fileID: 1548171992440165379, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
@@ -105,7 +140,17 @@ PrefabInstance:
     - target: {fileID: 2420280848212149215, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420280848212149215, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146256112132391518, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_TagString
+      value: ObstacleInvisible
       objectReference: {fileID: 0}
     - target: {fileID: 8967223428060089133, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
@@ -115,7 +160,17 @@ PrefabInstance:
     - target: {fileID: 885306829792373023, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 885306829792373023, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492778850929678461, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_TagString
+      value: ObstacleInvisible
       objectReference: {fileID: 0}
     - target: {fileID: 4539259688745402904, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
@@ -125,7 +180,12 @@ PrefabInstance:
     - target: {fileID: 4973715431646926236, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973715431646926236, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27dc691d7b2892c4eaeaf8becce42dfd, type: 3}

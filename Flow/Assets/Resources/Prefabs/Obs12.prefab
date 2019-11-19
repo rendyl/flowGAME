@@ -67,6 +67,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2728393230769827457, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_TagString
+      value: ObstacleInvisible
+      objectReference: {fileID: 0}
+    - target: {fileID: 4386133620347390028, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_TagString
+      value: ObstacleInvisible
+      objectReference: {fileID: 0}
     - target: {fileID: 7653563620611156411, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
@@ -75,7 +85,12 @@ PrefabInstance:
     - target: {fileID: 919610968815049568, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919610968815049568, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5970269433881912882, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
@@ -85,7 +100,12 @@ PrefabInstance:
     - target: {fileID: 2068196968190484630, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068196968190484630, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27dc691d7b2892c4eaeaf8becce42dfd, type: 3}
