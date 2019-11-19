@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &876201466838759687
+--- !u!1001 &1895609092534488692
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1031410600049288774, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Name
-      value: Obs3
+      value: Obs7
       objectReference: {fileID: 0}
     - target: {fileID: 8113523573740735560, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
@@ -67,32 +67,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 394725969888213995, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 1774911695620568358, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4338573916121721066, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5970269433881912882, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2068196968190484630, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 698068469796846299, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4876727292727735581, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 3654639717138245361, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -107,12 +87,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8967223428060089133, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 1548171992440165379, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 885306829792373023, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 2420280848212149215, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
       value: 0
