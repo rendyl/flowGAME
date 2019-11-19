@@ -10,6 +10,7 @@ TagManager:
   - GarbageCollector
   - ObstacleInvisible
   - Exit
+  - Valide
   layers:
   - Default
   - TransparentFX
