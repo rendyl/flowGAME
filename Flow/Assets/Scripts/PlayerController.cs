@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool deathOnHit;
+    public GameObject goToinstantiate;
+
     public ParticleSystem ps1;
     public ParticleSystem ps2;
 
@@ -261,6 +264,11 @@ public class PlayerController : MonoBehaviour
                 }
             }
             transform.position += Vector3.forward * speed * Time.deltaTime;
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Instantiate(goToinstantiate, transform.position - new Vector3(0, 0.5f, 2), Quaternion.identity);
+            }
         }
         else
         {
@@ -268,20 +276,21 @@ public class PlayerController : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-        }
+        }    
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.gameObject.CompareTag("Obstacle"))
+        
+        if (other.gameObject.gameObject.CompareTag("Obstacle") && deathOnHit)
         {
             Debug.Log(this.gameObject.tag);
             alive = false;
             anim.SetTrigger("Death");
-            FindObjectOfType<ScoreManager>().scoreIncreasing = false;
+            // FindObjectOfType<ScoreManager>().scoreIncreasing = false;
             transform.position = lastPos;
             Debug.Log("dead");
-        }
+        }        
         if (other.gameObject.gameObject.CompareTag("Bonus"))
         {
             // ps1.Play();
