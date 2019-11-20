@@ -36,7 +36,7 @@ public class ScoreManager : MonoBehaviour
             { 2.2f, 0.86f },
             { 2.4f, 0.99f }
         };
-        Debug.Log(fillAmoutPerSpeed.Keys.Count);
+        Debug.Log(fillAmoutPerSpeed.Keys);
     }
 
     void Update()
@@ -61,5 +61,15 @@ public class ScoreManager : MonoBehaviour
         Debug.Log(fill);
         Debug.Log(currentSpeed);
         blue.fillAmount = fill;
+    }
+
+    public void hitObstacles()
+    {
+        //whenever the player hit an obstacles
+    }
+
+    public void succees()
+    {
+        //whenever the player succesfully dodge the obstacles
     }
 }
