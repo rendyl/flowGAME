@@ -18,11 +18,13 @@ public class ComboManager : MonoBehaviour
     public float pointsPerSecond;
     public int pointsPerObstacles;
     public bool scoreIncreasing;
+    public int maxFailStreak;
 
-    public Dictionary<int,float> fillAmoutPerSpeed;
-    public Dictionary<int, int> multiScorePerCombo;
+    private Dictionary<int,float> fillAmoutPerSpeed;
+    private Dictionary<int, int> multiScorePerCombo;
     private int currentCombo = 0;
     private int comboMulti = 1;
+    private int failStreak = 0;
 
     private bool justHit = false;
 
@@ -76,8 +78,19 @@ public class ComboManager : MonoBehaviour
 
     public void hitObstacles()
     {
-        justHit = true;
-        currentCombo=1;
+        if (!justHit)
+        {
+            justHit = true;
+            failStreak++;
+            currentCombo = 1;
+        }
+        
+        if (failStreak > maxFailStreak)
+        {
+            Debug.Log("dead");
+            FindObjectOfType<PlayerController>().dead();
+        }
+        
         if (fillAmoutPerSpeed.ContainsKey(currentCombo))
         {
             //on passe de palier
@@ -105,6 +118,7 @@ public class ComboManager : MonoBehaviour
         }
         else
         {
+            failStreak = 0;
             currentCombo++;
             if (fillAmoutPerSpeed.ContainsKey(currentCombo))
             {

@@ -309,6 +309,14 @@ public class PlayerController : MonoBehaviour
         }    
     }
 
+    public void dead()
+    {
+        alive = false;
+        anim.SetTrigger("Death");
+        transform.position = lastPos;
+        Debug.Log("dead");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Obstacle") && deathOnHit)
