@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem ps1;
     public ParticleSystem ps2;
 
+    public float speedIncrement;
     public float speedMultiplier;
     public float baseSpeed;
     public float speed;
@@ -53,6 +54,8 @@ public class PlayerController : MonoBehaviour
     // private BoxCollider bc;
 
     private Vector3 lastPos;
+
+    public ComboManager comboManager;
 
     // Start is called before the first frame update
     void Start()
@@ -308,7 +311,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("aaa");
         if (other.gameObject.CompareTag("Obstacle") && deathOnHit)
         {
             Debug.Log(this.gameObject.tag);
@@ -317,14 +319,24 @@ public class PlayerController : MonoBehaviour
             // FindObjectOfType<ScoreManager>().scoreIncreasing = false;
             transform.position = lastPos;
             Debug.Log("dead");
-        }        
-        if (other.gameObject.gameObject.CompareTag("Bonus"))
+        }
+
+        else if (other.gameObject.CompareTag("Obstacle") && !deathOnHit)
+        {
+            Debug.Log(this.gameObject.tag);
+            Debug.Log("dead");
+            comboManager.hitObstacles();
+            other.gameObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Red");
+        }
+
+
+        else if (other.gameObject.gameObject.CompareTag("Bonus"))
         {
             // ps1.Play();
             // ps2.Play();
 
             Destroy(other.gameObject);
-            updateSpeedMultiplier(speedMultiplier + 0.2f);
+            updateSpeedMultiplier(speedMultiplier + speedIncrement);
             if (speed >= 12f)
             {
                 if(!psFoot1.isPlaying)
@@ -353,6 +365,10 @@ public class PlayerController : MonoBehaviour
                 }
             }
             Debug.Log("Power up");
+        }        else
+        {
+            Debug.Log("IncreaseScore");
+            comboManager.succees();
         }
     }
 }
