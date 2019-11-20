@@ -48,7 +48,9 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem psBack;
 
     private Animator anim;
-    private BoxCollider bc;
+
+    private CapsuleCollider cc;
+    // private BoxCollider bc;
 
     private Vector3 lastPos;
 
@@ -57,7 +59,8 @@ public class PlayerController : MonoBehaviour
     {
         lastPos = transform.position;
 
-        bc = GetComponent<BoxCollider>();
+        // bc = GetComponent<BoxCollider>();
+        cc = GetComponent<CapsuleCollider>();
         anim = GetComponentInChildren<Animator>();
 
         updateSpeedMultiplier(speedMultiplier);
@@ -90,8 +93,11 @@ public class PlayerController : MonoBehaviour
 
     void resetCollider()
     {
-        bc.center = new Vector3(0, 1, 0);
-        bc.size = new Vector3(0.9f, 1.8f, 0.9f);
+        //bc.center = new Vector3(0, 1, 0);
+        //bc.size = new Vector3(0.9f, 1.8f, 0.9f);
+
+        cc.center = new Vector3(0, 1, 0);
+        cc.height = 1.8f;
     }
 
     // Update is called once per frame
@@ -174,8 +180,13 @@ public class PlayerController : MonoBehaviour
                     {
                         jumping = true;
                         timeJump = timeJUMP;
-                        bc.center += transform.up * 1.5f;
-                        bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+
+                        cc.center += transform.up * 1.5f;
+                        cc.height = 0.9f;
+
+                        //bc.center += transform.up * 1.5f;
+                        //bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+
                         anim.ResetTrigger("Jumping");
                         anim.SetTrigger("Jumping");
                     }
@@ -188,8 +199,14 @@ public class PlayerController : MonoBehaviour
                     {
                         sliding = true;
                         timeSlide = timeSLIDE;
-                        bc.center -= transform.up;
-                        bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+
+                        cc.center -= transform.up * 0.5f;
+                        cc.height = 0.9f;
+
+                        //bc.center -= transform.up;
+                        //bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+
+
                         anim.ResetTrigger("Sliding");
                         anim.SetTrigger("Sliding");
                     }
@@ -220,8 +237,13 @@ public class PlayerController : MonoBehaviour
                             {
                                 wallRide = true;
                                 timeWallRide = timeWALLRIDE;
-                                bc.center += transform.up * 0.5f;
-                                bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+
+                                cc.center += transform.up * 0.5f;
+                                cc.height = 0.9f;
+
+                                //bc.center += transform.up * 0.5f;
+                                //bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+
                                 anim.ResetTrigger("WallRunningL");
                                 anim.SetTrigger("WallRunningL");
                             }
@@ -254,8 +276,13 @@ public class PlayerController : MonoBehaviour
                             {
                                 wallRide = true;
                                 timeWallRide = timeWALLRIDE;
-                                bc.center += transform.up * 0.5f;
-                                bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+
+                                cc.center += transform.up * 0.5f;
+                                cc.height = 0.9f;
+
+                                //bc.center += transform.up * 0.5f;
+                                //bc.size = new Vector3(0.9f, 0.9f, 0.9f);
+
                                 anim.ResetTrigger("WallRunningR");
                                 anim.SetTrigger("WallRunningR");
                             }
@@ -281,8 +308,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.gameObject.gameObject.CompareTag("Obstacle") && deathOnHit)
+        Debug.Log("aaa");
+        if (other.gameObject.CompareTag("Obstacle") && deathOnHit)
         {
             Debug.Log(this.gameObject.tag);
             alive = false;
