@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
         //bc.size = new Vector3(0.9f, 1.8f, 0.9f);
 
         cc.center = new Vector3(0, 1, 0);
-        cc.height = 1.8f;
+        cc.height = 1.5f;
     }
 
     // Update is called once per frame
@@ -182,7 +182,7 @@ public class PlayerController : MonoBehaviour
                         timeJump = timeJUMP;
 
                         cc.center += transform.up * 1.5f;
-                        cc.height = 0.9f;
+                        cc.height = 0.75f;
 
                         //bc.center += transform.up * 1.5f;
                         //bc.size = new Vector3(0.9f, 0.9f, 0.9f);
@@ -201,7 +201,7 @@ public class PlayerController : MonoBehaviour
                         timeSlide = timeSLIDE;
 
                         cc.center -= transform.up * 0.5f;
-                        cc.height = 0.9f;
+                        cc.height = 0.75f;
 
                         //bc.center -= transform.up;
                         //bc.size = new Vector3(0.9f, 0.9f, 0.9f);
@@ -239,7 +239,7 @@ public class PlayerController : MonoBehaviour
                                 timeWallRide = timeWALLRIDE;
 
                                 cc.center += transform.up * 0.5f;
-                                cc.height = 0.9f;
+                                cc.height = 0.75f;
 
                                 //bc.center += transform.up * 0.5f;
                                 //bc.size = new Vector3(0.9f, 0.9f, 0.9f);
@@ -278,7 +278,7 @@ public class PlayerController : MonoBehaviour
                                 timeWallRide = timeWALLRIDE;
 
                                 cc.center += transform.up * 0.5f;
-                                cc.height = 0.9f;
+                                cc.height = 0.75f;
 
                                 //bc.center += transform.up * 0.5f;
                                 //bc.size = new Vector3(0.9f, 0.9f, 0.9f);
