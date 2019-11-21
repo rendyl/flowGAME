@@ -25,8 +25,8 @@ public class ComboManager : MonoBehaviour
     private int currentCombo = 1;
     private int comboMulti = 1;
     private int failStreak = 0;
-    private float minFloatRadialBar = 0.18f;
-    private float maxFloatRadialBar = 0.94f;
+    //private float minFloatRadialBar = 0.18f;
+    //private float maxFloatRadialBar = 0.94f;
 
     private bool justHit = false;
 
@@ -74,7 +74,7 @@ public class ComboManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            succees();
+            success();
         }
     }
 
@@ -112,7 +112,7 @@ public class ComboManager : MonoBehaviour
         comboText.SetText("X " + (currentCombo-1));
     }
 
-    public void succees()
+    public void success()
     {
         if (justHit)
         {
@@ -136,7 +136,7 @@ public class ComboManager : MonoBehaviour
                 blue.fillAmount = fill;
 
             }
-            else
+            else if (currentCombo < 129)
             {
                 //Definition du fill amount en interpolation linéaire entre les paliers
                 var Enum = multiScorePerCombo.Keys.GetEnumerator();

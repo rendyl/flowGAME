@@ -13,16 +13,6 @@ public class TimeMusic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GetComponent<AudioSource>().time);
+
     }
 }
-
-// 24
-// 34
-// 47
-// 49
-//
-//
-//
-//
-//

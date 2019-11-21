@@ -337,7 +337,12 @@ public class PlayerController : MonoBehaviour
             other.gameObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Red");
         }
 
+        else
+        {
+            comboManager.success();
+        }
 
+        /*
         else if (other.gameObject.gameObject.CompareTag("Bonus"))
         {
             // ps1.Play();
@@ -355,6 +360,7 @@ public class PlayerController : MonoBehaviour
             }
             if (speed >= 14f)
             {
+
                 SerializedObject so = new SerializedObject(psBack);
                 if (!psBack.isPlaying)
                 {
@@ -373,9 +379,9 @@ public class PlayerController : MonoBehaviour
                 }
             }
             Debug.Log("Power up");
-        }        else
-        {
-            comboManager.succees();
-        }
+        }        */
+
+
+
     }
 }
