@@ -375,7 +375,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Power up");
         }        else
         {
-            Debug.Log("IncreaseScore");
             comboManager.succees();
         }
     }
