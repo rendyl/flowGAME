@@ -8,13 +8,14 @@ using UnityEngine.EventSystems;
 
 public class ComboManager : MonoBehaviour
 {
+    [Header("UI")]
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI multiText;
     public TextMeshProUGUI comboText;
     public Image blue;
 
+    [Header("Score settings")]
     public float scoreCount;
-
     public float pointsPerSecond;
     public int pointsPerObstacles;
     public bool scoreIncreasing;
@@ -29,6 +30,11 @@ public class ComboManager : MonoBehaviour
     //private float maxFloatRadialBar = 0.94f;
 
     private bool justHit = false;
+
+    [Header("Particules")]
+    public ParticleSystem back;
+    public ParticleSystem leftFoot;
+    public ParticleSystem rightFoot;
 
     void Start()
     {
@@ -72,10 +78,10 @@ public class ComboManager : MonoBehaviour
 
         scoreText.SetText("" + Mathf.Round(scoreCount).ToString("000000000"));
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            success();
-        }
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    success();
+        //}
     }
 
     public void hitObstacles()
@@ -85,6 +91,9 @@ public class ComboManager : MonoBehaviour
             justHit = true;
             failStreak++;
             currentCombo = 1;
+            back.Stop();
+            leftFoot.Stop();
+            rightFoot.Stop();
         }
         
         if (failStreak > maxFailStreak)
@@ -134,6 +143,19 @@ public class ComboManager : MonoBehaviour
                 float fill;
                 fillAmoutPerSpeed.TryGetValue(currentCombo, out fill);
                 blue.fillAmount = fill;
+
+                //activation des particules
+                if (currentCombo == 64)
+                {
+                    //activation des pieds
+                    leftFoot.Play();
+                    rightFoot.Play();
+                }
+                if(currentCombo==128)
+                {
+                    //activation du dos
+                    back.Play();
+                }
 
             }
             else if (currentCombo < 129)

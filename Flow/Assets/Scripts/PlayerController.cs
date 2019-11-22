@@ -8,12 +8,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Life")]
     public bool deathOnHit;
-    public GameObject goToinstantiate;
+    private bool alive;
+    //public GameObject goToinstantiate;
 
-    public ParticleSystem ps1;
-    public ParticleSystem ps2;
+    //public ParticleSystem ps1;
+    //public ParticleSystem ps2;
 
+
+    [Header("Setup Value")]
     public float speedIncrement;
     public float speedMultiplier;
     public float baseSpeed;
@@ -33,8 +37,6 @@ public class PlayerController : MonoBehaviour
     private bool moveLeft;
     private bool moveRight;
 
-    private bool alive;
-
     private float timeWallRide;
     private float timeJump;
     private float timeSlide;
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
     public float baseDiv;
     public float div;
 
+    [Header("Particles System")]
     public ParticleSystem psFoot1;
     public ParticleSystem psFoot2;
     public ParticleSystem psBack;
@@ -55,11 +58,16 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 lastPos;
 
+    [Header("ComboManager (UI)")]
     public ComboManager comboManager;
+
+    private AudioClip deathAudio;
 
     // Start is called before the first frame update
     void Start()
     {
+        deathAudio =Resources.Load<AudioClip>("Songs/death");
+
         lastPos = transform.position;
 
         // bc = GetComponent<BoxCollider>();
@@ -297,7 +305,8 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                Instantiate(goToinstantiate, transform.position - new Vector3(0, 0.5f, 2), Quaternion.identity);
+                //Instantiate(goToinstantiate, transform.position - new Vector3(0, 0.5f, 2), Quaternion.identity);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
         else
@@ -315,6 +324,13 @@ public class PlayerController : MonoBehaviour
         anim.SetTrigger("Death");
         transform.position = lastPos;
         Debug.Log("dead");
+
+        //mute de la musique
+        AudioSource audioSource = FindObjectOfType<AudioSource>();
+        Debug.Log(audioSource.gameObject.name);
+        audioSource.Stop();
+        audioSource.PlayOneShot(deathAudio);
+        comboManager.scoreIncreasing = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -326,13 +342,11 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("Death");
             // FindObjectOfType<ScoreManager>().scoreIncreasing = false;
             transform.position = lastPos;
-            Debug.Log("dead");
         }
 
         else if (other.gameObject.CompareTag("Obstacle") && !deathOnHit)
         {
             Debug.Log(this.gameObject.tag);
-            Debug.Log("dead");
             comboManager.hitObstacles();
             other.gameObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Red");
         }
@@ -341,47 +355,5 @@ public class PlayerController : MonoBehaviour
         {
             comboManager.success();
         }
-
-        /*
-        else if (other.gameObject.gameObject.CompareTag("Bonus"))
-        {
-            // ps1.Play();
-            // ps2.Play();
-
-            Destroy(other.gameObject);
-            updateSpeedMultiplier(speedMultiplier + speedIncrement);
-            if (speed >= 12f)
-            {
-                if(!psFoot1.isPlaying)
-                {
-                    psFoot1.Play();
-                    psFoot2.Play();
-                }
-            }
-            if (speed >= 14f)
-            {
-
-                SerializedObject so = new SerializedObject(psBack);
-                if (!psBack.isPlaying)
-                {
-                    so.FindProperty("InitialModule.startColor.minColor").colorValue = new Color(0.2688679f, 0.6874771f, 1f, 1f);
-                    so.FindProperty("InitialModule.startColor.maxColor").colorValue = new Color(0.2688679f, 0.6874771f, 1f, 1f);
-                    so.ApplyModifiedProperties();
-                    psBack.Play();
-                }
-                if(speed >= 16f)
-                {
-                    so.FindProperty("InitialModule.startColor.minColor").colorValue = new Color(0.2688679f, 0.6874771f, 1f, 1f);
-                    so.FindProperty("InitialModule.startColor.maxColor").colorValue = new Color(1f, 0.3615f, 0f, 1f);
-                    so.ApplyModifiedProperties();
-                    // ps2.Play();
-                    // ps2.loop = true;
-                }
-            }
-            Debug.Log("Power up");
-        }        */
-
-
-
-    }
+    }
 }
