@@ -36,8 +36,16 @@ public class ComboManager : MonoBehaviour
     public ParticleSystem leftFoot;
     public ParticleSystem rightFoot;
 
+    [Header("Menu pause")]
+    public GameObject prefabMenu;
+
     void Start()
     {
+        prefabMenu.SetActive(false);
+        rightFoot.Stop();
+        leftFoot.Stop();
+        back.Stop();
+
         scoreText.text = "000000000";
 
         blue.fillAmount = 0.15f;
@@ -82,6 +90,33 @@ public class ComboManager : MonoBehaviour
         //{
         //    success();
         //}
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            menuPause();
+        }
+    }
+
+    void menuPause()
+    {
+        if (Time.timeScale == 0.0f)
+        {
+            //on enleve la pause
+            Time.timeScale = 1.0f;
+            prefabMenu.SetActive(false);
+
+            AudioSource audioSource = FindObjectOfType<AudioSource>();
+            audioSource.Play();
+        }
+        else
+        {
+            //on met en pause
+            Time.timeScale = 0.0f;
+            prefabMenu.SetActive(true);
+
+            AudioSource audioSource = FindObjectOfType<AudioSource>();
+            audioSource.Pause();
+        }
     }
 
     public void hitObstacles()
