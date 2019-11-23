@@ -61,8 +61,9 @@ public class Menu : MonoBehaviour
             textPlayOrange.SetActive(false);
 
             if (Input.GetMouseButtonDown(0))
-            {
-                SceneManager.LoadScene("Anim&Controller");
+            { 
+                Debug.Log("load scene");
+                SceneManager.LoadScene("lastSceneToFix");
             }
         }
     }
