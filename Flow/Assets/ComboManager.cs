@@ -133,6 +133,8 @@ public class ComboManager : MonoBehaviour
             back.Stop();
             leftFoot.Stop();
             rightFoot.Stop();
+            hyperDrive1.Stop();
+            hyperDrive2.Stop();
         }
         
         if (failStreak > maxFailStreak)
