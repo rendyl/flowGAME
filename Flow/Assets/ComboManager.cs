@@ -33,6 +33,8 @@ public class ComboManager : MonoBehaviour
 
     [Header("Particules")]
     public ParticleSystem back;
+    public ParticleSystem hyperDrive1;
+    public ParticleSystem hyperDrive2;
     public ParticleSystem leftFoot;
     public ParticleSystem rightFoot;
 
@@ -42,6 +44,8 @@ public class ComboManager : MonoBehaviour
     void Start()
     {
         prefabMenu.SetActive(false);
+        hyperDrive1.Stop();
+        hyperDrive2.Stop();
         rightFoot.Stop();
         leftFoot.Stop();
         back.Stop();
@@ -180,16 +184,20 @@ public class ComboManager : MonoBehaviour
                 blue.fillAmount = fill;
 
                 //activation des particules
-                if (currentCombo == 64)
+                if (currentCombo == 32)
                 {
                     //activation des pieds
                     leftFoot.Play();
                     rightFoot.Play();
                 }
-                if(currentCombo==128)
+                if (currentCombo == 64)
                 {
-                    //activation du dos
                     back.Play();
+                }
+                if (currentCombo == 128)
+                {
+                    hyperDrive1.Play();
+                    hyperDrive2.Play();
                 }
 
             }

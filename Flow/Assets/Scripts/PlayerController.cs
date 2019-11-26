@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        deathAudio =Resources.Load<AudioClip>("Songs/death");
+        deathAudio = Resources.Load<AudioClip>("Songs/death");
 
         lastPos = transform.position;
 
@@ -348,7 +348,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log(this.gameObject.tag);
             comboManager.hitObstacles();
-            other.gameObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Red");
+            other.gameObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Yellow");
         }
 
         else
