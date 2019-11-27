@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using System;
 
 public class ComboManager : MonoBehaviour
 {
@@ -40,6 +41,9 @@ public class ComboManager : MonoBehaviour
 
     [Header("Menu pause")]
     public GameObject prefabMenu;
+    public Button quitButton;
+    public Button resumeButton;
+    public Slider sliderVolume;
 
     void Start()
     {
@@ -48,7 +52,12 @@ public class ComboManager : MonoBehaviour
         hyperDrive2.Stop();
         rightFoot.Stop();
         leftFoot.Stop();
-        back.Stop();
+        //back.Stop();
+
+        quitButton.onClick.AddListener(OnQuitButton);
+        resumeButton.onClick.AddListener(OnResumeButton);
+        sliderVolume.onValueChanged.AddListener(OnVolumeChange);
+        sliderVolume.value= FindObjectOfType<AudioSource>().volume;
 
         scoreText.text = "000000000";
 
@@ -90,10 +99,10 @@ public class ComboManager : MonoBehaviour
 
         scoreText.SetText("" + Mathf.Round(scoreCount).ToString("000000000"));
 
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    success();
-        //}
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            success();
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -240,5 +249,29 @@ public class ComboManager : MonoBehaviour
             Debug.Log(test2);*/
 
         }
+    }
+
+    public void OnQuitButton()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+
+    }
+
+    public void OnResumeButton()
+    {
+        Debug.Log("Resume");
+        Time.timeScale = 1.0f;
+        prefabMenu.SetActive(false);
+
+        AudioSource audioSource = FindObjectOfType<AudioSource>();
+        audioSource.Play();
+    }
+
+    public void OnVolumeChange(float newVolume)
+    {
+        //Debug.Log("Volume : "+newVolume);
+        AudioSource audioSource = FindObjectOfType<AudioSource>();
+        audioSource.volume = newVolume;
     }
 }
