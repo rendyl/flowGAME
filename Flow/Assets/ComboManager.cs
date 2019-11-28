@@ -62,7 +62,7 @@ public class ComboManager : MonoBehaviour
         restartButton.onClick.AddListener(OnRestartButton);
         menuButton.onClick.AddListener(OnMainMenuButton);
         sliderVolume.onValueChanged.AddListener(OnVolumeChange);
-        sliderVolume.value= FindObjectOfType<AudioSource>().volume;
+        sliderVolume.value= PlayerPrefs.GetFloat("volume", 0.5f);
 
         scoreText.text = "000000000";
 
@@ -294,5 +294,6 @@ public class ComboManager : MonoBehaviour
         //Debug.Log("Volume : "+newVolume);
         AudioSource audioSource = FindObjectOfType<AudioSource>();
         audioSource.volume = newVolume;
+        PlayerPrefs.SetFloat("volume", newVolume);
     }
 }
