@@ -47,6 +47,7 @@ public class ComboManager : MonoBehaviour
     public Button restartButton;
     public Button menuButton;
     public Slider sliderVolume;
+    public TMPro.TextMeshProUGUI textRestart;
 
     void Start()
     {
@@ -62,6 +63,7 @@ public class ComboManager : MonoBehaviour
         restartButton.onClick.AddListener(OnRestartButton);
         menuButton.onClick.AddListener(OnMainMenuButton);
         sliderVolume.onValueChanged.AddListener(OnVolumeChange);
+        textRestart.gameObject.SetActive(false);
         sliderVolume.value= PlayerPrefs.GetFloat("volume", 0.5f);
 
         scoreText.text = "000000000";
@@ -155,6 +157,7 @@ public class ComboManager : MonoBehaviour
         {
             Debug.Log("dead");
             FindObjectOfType<PlayerController>().dead();
+            textRestart.gameObject.SetActive(true);
         }
         
         if (fillAmoutPerSpeed.ContainsKey(currentCombo))
