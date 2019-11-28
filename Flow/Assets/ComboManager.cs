@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.SceneManagement;
 
 public class ComboManager : MonoBehaviour
 {
@@ -43,6 +44,8 @@ public class ComboManager : MonoBehaviour
     public GameObject prefabMenu;
     public Button quitButton;
     public Button resumeButton;
+    public Button restartButton;
+    public Button menuButton;
     public Slider sliderVolume;
 
     void Start()
@@ -52,10 +55,12 @@ public class ComboManager : MonoBehaviour
         hyperDrive2.Stop();
         rightFoot.Stop();
         leftFoot.Stop();
-        //back.Stop();
+        back.Stop();
 
         quitButton.onClick.AddListener(OnQuitButton);
         resumeButton.onClick.AddListener(OnResumeButton);
+        restartButton.onClick.AddListener(OnRestartButton);
+        menuButton.onClick.AddListener(OnMainMenuButton);
         sliderVolume.onValueChanged.AddListener(OnVolumeChange);
         sliderVolume.value= FindObjectOfType<AudioSource>().volume;
 
@@ -255,6 +260,22 @@ public class ComboManager : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+
+    }
+
+    public void OnMainMenuButton()
+    {
+        Debug.Log("Main Menu");
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("Menu");
+
+    }
+
+    public void OnRestartButton()
+    {
+        Debug.Log("Restart");
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
 
