@@ -42,12 +42,16 @@ public class ComboManager : MonoBehaviour
 
     [Header("Menu pause")]
     public GameObject prefabMenu;
-    public Button quitButton;
-    public Button resumeButton;
-    public Button restartButton;
-    public Button menuButton;
     public Slider sliderVolume;
     public TMPro.TextMeshProUGUI textRestart;
+
+    [Header("Stat")]
+    public int nbObstacles;
+    public GameObject prefabFin;
+    private int highestCombo;
+    private int nbObstaclesHit;
+    private int nbOstaclesSuccess;
+    
 
     void Start()
     {
@@ -58,13 +62,12 @@ public class ComboManager : MonoBehaviour
         leftFoot.Stop();
         back.Stop();
 
-        quitButton.onClick.AddListener(OnQuitButton);
-        resumeButton.onClick.AddListener(OnResumeButton);
-        restartButton.onClick.AddListener(OnRestartButton);
-        menuButton.onClick.AddListener(OnMainMenuButton);
-        sliderVolume.onValueChanged.AddListener(OnVolumeChange);
         textRestart.gameObject.SetActive(false);
         sliderVolume.value= PlayerPrefs.GetFloat("volume", 0.5f);
+        sliderVolume.onValueChanged.AddListener(OnVolumeChange);
+        AudioSource audioSource = FindObjectOfType<AudioSource>();
+        audioSource.volume = sliderVolume.value;
+        prefabFin.SetActive(false);
 
         scoreText.text = "000000000";
 
@@ -115,6 +118,11 @@ public class ComboManager : MonoBehaviour
         {
             menuPause();
         }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            endGame();
+        }
     }
 
     void menuPause()
@@ -143,8 +151,14 @@ public class ComboManager : MonoBehaviour
     {
         if (!justHit)
         {
+            nbObstaclesHit++;
+            nbObstacles++;
             justHit = true;
             failStreak++;
+            if (currentCombo > highestCombo)
+            {
+                highestCombo = currentCombo;
+            }
             currentCombo = 1;
             back.Stop();
             leftFoot.Stop();
@@ -189,6 +203,8 @@ public class ComboManager : MonoBehaviour
         {
             failStreak = 0;
             currentCombo++;
+            nbObstacles++;
+            nbOstaclesSuccess++;
             if (fillAmoutPerSpeed.ContainsKey(currentCombo))
             {
                 //on passe de palier
@@ -257,6 +273,23 @@ public class ComboManager : MonoBehaviour
             Debug.Log(test2);*/
 
         }
+    }
+
+    //call this when u've finished ur run
+    public void endGame()
+    {
+        scoreIncreasing = false;
+        Time.timeScale = 0.0f;
+        prefabFin.SetActive(true);
+        TMPro.TextMeshProUGUI[] texts = prefabFin.GetComponentsInChildren<TMPro.TextMeshProUGUI>();
+        for(int i = 0; i < texts.Length; i++)
+        {
+            texts[i].text = ""+i;
+        }
+        TMPro.TextMeshProUGUI score = texts[1];
+        score.text = "Score : " + scoreCount;
+        TMPro.TextMeshProUGUI ratioObs = texts[2];
+        ratioObs.text = ""+nbObstacles;
     }
 
     public void OnQuitButton()

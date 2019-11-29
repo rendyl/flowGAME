@@ -35,7 +35,7 @@ public class GenEndless : MonoBehaviour
         Vector3 distance = currentPoint - joueur.transform.position;
         if (distance.magnitude < TriggerDistance)
         {
-            Debug.Log("CreateObs");
+            //Debug.Log("CreateObs");
             createObs();
         }
     }
@@ -44,7 +44,7 @@ public class GenEndless : MonoBehaviour
     {
         //generation de 2 obstacles : 1 vide et un obs + setup de currentPoint
         currentPoint += new Vector3(0, 0, 5f);
-        Destroy(Instantiate(Resources.Load<GameObject>("Prefabs/Obs0"), currentPoint, Quaternion.identity),6);
+        //Destroy(Instantiate(Resources.Load<GameObject>("Prefabs/Obs0"), currentPoint, Quaternion.identity),6);
 
         currentPoint += new Vector3(0, 0, 5f);
         int index = Random.Range(1, 23);

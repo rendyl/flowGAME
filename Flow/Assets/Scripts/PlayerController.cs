@@ -351,7 +351,7 @@ public class PlayerController : MonoBehaviour
             other.gameObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Yellow");
         }
 
-        else
+        else if (other.gameObject.tag!="ObstacleInvisible")
         {
             comboManager.success();
         }
