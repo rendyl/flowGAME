@@ -48,8 +48,8 @@ public class ComboManager : MonoBehaviour
     [Header("Stat")]
     public int nbObstacles;
     public GameObject prefabFin;
-    private int highestCombo;
-    private int nbObstaclesHit;
+    public int highestCombo;
+    public int nbObstaclesHit;
     private int nbOstaclesSuccess;
     
 
@@ -280,16 +280,22 @@ public class ComboManager : MonoBehaviour
     {
         scoreIncreasing = false;
         Time.timeScale = 0.0f;
+        AudioSource audioSource = FindObjectOfType<AudioSource>();
+        audioSource.Stop();
         prefabFin.SetActive(true);
         TMPro.TextMeshProUGUI[] texts = prefabFin.GetComponentsInChildren<TMPro.TextMeshProUGUI>();
-        for(int i = 0; i < texts.Length; i++)
+        /*for(int i = 0; i < texts.Length; i++)
         {
             texts[i].text = ""+i;
-        }
+        }*/
         TMPro.TextMeshProUGUI score = texts[1];
-        score.text = "Score : " + scoreCount;
-        TMPro.TextMeshProUGUI ratioObs = texts[2];
-        ratioObs.text = ""+nbObstacles;
+        score.text = "Score : " + Mathf.Round(scoreCount).ToString("000000000");
+        TMPro.TextMeshProUGUI highestComobo = texts[2];
+        highestComobo.text = "Highest combo : " + highestCombo;
+        TMPro.TextMeshProUGUI ratioObs = texts[3];
+        float ratio = (float)nbOstaclesSuccess / nbObstacles;
+        ratio *= 100f;
+        ratioObs.text = "Ratio obstacles : "+ratio.ToString("00.00")+"%";
     }
 
     public void OnQuitButton()
@@ -311,7 +317,7 @@ public class ComboManager : MonoBehaviour
     {
         Debug.Log("Restart");
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
 
     }
 

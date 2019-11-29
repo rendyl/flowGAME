@@ -350,6 +350,10 @@ public class PlayerController : MonoBehaviour
             comboManager.hitObstacles();
             other.gameObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Yellow");
         }
+        else if (other.gameObject.tag == "Finish")
+        {
+            comboManager.endGame();
+        }
 
         else if (other.gameObject.tag!="ObstacleInvisible")
         {
