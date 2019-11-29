@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GenEndless : MonoBehaviour
 {
-    [Tooltip("0 etant l obs vide")]
-    public int nbObs;
     public float TriggerDistance;
 
     public Vector3 startPoint;
@@ -14,11 +12,9 @@ public class GenEndless : MonoBehaviour
     public GameObject joueur;
     private Vector3 posJoueur;
 
-    private List<GameObject> obstacles;
-
-    public float easyToMedium = 200.0f;
-    public float mediumToHard = 400.0f;
-    public float hardToUltra = 600.0f;
+    public float easyToMedium = 20.0f;
+    public float mediumToHard = 20.0f;
+    public float hardToUltra = 20.0f;
     private float targetTime;
 
     // Start is called before the first frame update
@@ -26,6 +22,8 @@ public class GenEndless : MonoBehaviour
     {
         currentPoint = startPoint;
         targetTime = 0;
+        mediumToHard += easyToMedium;
+        hardToUltra += mediumToHard;
     }
 
     // Update is called once per frame
