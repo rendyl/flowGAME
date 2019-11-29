@@ -46,7 +46,7 @@ public class GenEndless : MonoBehaviour
     {
         //generation de 2 obstacles : 1 vide et un obs + setup de currentPoint
         currentPoint += new Vector3(0, 0, 5f);
-        Instantiate(Resources.Load<GameObject>("Prefabs/Obs0"), currentPoint, Quaternion.identity);
+        Destroy(Instantiate(Resources.Load<GameObject>("Prefabs/Obs0"), currentPoint, Quaternion.identity),6);
 
         currentPoint += new Vector3(0, 0, 5f);
         int index = Random.Range(1, 23);
@@ -84,6 +84,6 @@ public class GenEndless : MonoBehaviour
             index = easy;
         }
 
-        Instantiate(Resources.Load<GameObject>("Prefabs/Obs" + index), currentPoint, Quaternion.identity);
+        Destroy(Instantiate(Resources.Load<GameObject>("Prefabs/Obs" + index), currentPoint, Quaternion.identity),6);
     }
 }
