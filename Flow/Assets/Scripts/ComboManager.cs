@@ -53,6 +53,7 @@ public class ComboManager : MonoBehaviour
     private int nbOstaclesSuccess;
     void Start()
     {
+        Cursor.visible = false;
         prefabMenu.SetActive(false);
         hyperDrive1.Stop();
         hyperDrive2.Stop();
@@ -126,6 +127,7 @@ public class ComboManager : MonoBehaviour
         if (Time.timeScale == 0.0f)
         {
             //on enleve la pause
+            Cursor.visible = false;
             Time.timeScale = 1.0f;
             prefabMenu.SetActive(false);
 
@@ -135,6 +137,7 @@ public class ComboManager : MonoBehaviour
         else
         {
             //on met en pause
+            Cursor.visible = true;
             Time.timeScale = 0.0f;
             prefabMenu.SetActive(true);
 
@@ -322,6 +325,7 @@ public class ComboManager : MonoBehaviour
         Debug.Log("Resume");
         Time.timeScale = 1.0f;
         prefabMenu.SetActive(false);
+        Cursor.visible = false;
 
         AudioSource audioSource = FindObjectOfType<AudioSource>();
         audioSource.Play();
