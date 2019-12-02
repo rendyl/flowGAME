@@ -62,6 +62,8 @@ public class ComboManager : MonoBehaviour
         leftFoot.Stop();
         back.Stop();
 
+        Cursor.visible = false;
+
         textRestart.gameObject.SetActive(false);
         sliderVolume.value= PlayerPrefs.GetFloat("volume", 0.5f);
         sliderVolume.onValueChanged.AddListener(OnVolumeChange);
@@ -131,6 +133,7 @@ public class ComboManager : MonoBehaviour
         {
             //on enleve la pause
             Time.timeScale = 1.0f;
+            Cursor.visible = false;
             prefabMenu.SetActive(false);
 
             AudioSource audioSource = FindObjectOfType<AudioSource>();
@@ -141,6 +144,7 @@ public class ComboManager : MonoBehaviour
             //on met en pause
             Time.timeScale = 0.0f;
             prefabMenu.SetActive(true);
+            Cursor.visible = true;
 
             AudioSource audioSource = FindObjectOfType<AudioSource>();
             audioSource.Pause();
@@ -280,8 +284,8 @@ public class ComboManager : MonoBehaviour
     {
         scoreIncreasing = false;
         Time.timeScale = 0.0f;
-        AudioSource audioSource = FindObjectOfType<AudioSource>();
-        audioSource.Stop();
+        //AudioSource audioSource = FindObjectOfType<AudioSource>();
+        //audioSource.Stop();
         prefabFin.SetActive(true);
         TMPro.TextMeshProUGUI[] texts = prefabFin.GetComponentsInChildren<TMPro.TextMeshProUGUI>();
         /*for(int i = 0; i < texts.Length; i++)

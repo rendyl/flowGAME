@@ -6,7 +6,7 @@ public class DeleteObject : MonoBehaviour
 {
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log(col.gameObject.name);
+        //Debug.Log(col.gameObject.name);
         Destroy(col.gameObject);   
     }
 }

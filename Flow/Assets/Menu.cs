@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
@@ -18,10 +19,17 @@ public class Menu : MonoBehaviour
 
     public float speedRotate;
 
+    [Header("Hub")]
+    public GameObject mainCanvas;
+    public GameObject hubCanvas;
+    public GameObject texts;
+
     // Start is called before the first frame update
     void Start()
     {
         timeCounter = 0.0f;
+        Cursor.visible = false;
+        hubCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -60,11 +68,32 @@ public class Menu : MonoBehaviour
             textPlayBlue.SetActive(true);
             textPlayOrange.SetActive(false);
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !hubCanvas.activeSelf)
             { 
                 Debug.Log("load scene");
-                SceneManager.LoadScene("lastSceneToFix");
+                //SceneManager.LoadSceneAsync("YouSayRun");
+                showHub();
             }
         }
+    }
+
+    public void showHub()
+    {
+        Cursor.visible = true;
+        texts.SetActive(false);
+        mainCanvas.SetActive(false);
+        hubCanvas.SetActive(true);
+    }
+
+    public void OnEndless()
+    {
+        Debug.Log("endless");
+        SceneManager.LoadSceneAsync("Endless");
+    }
+
+    public void OnRythm()
+    {
+        Debug.Log("yousayrun");
+        SceneManager.LoadSceneAsync("YouSayRun");
     }
 }

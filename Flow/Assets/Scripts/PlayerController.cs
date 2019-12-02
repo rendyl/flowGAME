@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour
         // bc = GetComponent<BoxCollider>();
         cc = GetComponent<CapsuleCollider>();
         anim = GetComponentInChildren<Animator>();
+        AudioSource audioSource = FindObjectOfType<AudioSource>();
+        audioSource.Play();
 
         updateSpeedMultiplier(speedMultiplier);
 
@@ -346,7 +348,7 @@ public class PlayerController : MonoBehaviour
 
         else if (other.gameObject.CompareTag("Obstacle") && !deathOnHit)
         {
-            Debug.Log(this.gameObject.tag);
+            //Debug.Log(this.gameObject.tag);
             comboManager.hitObstacles();
             other.gameObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Yellow");
         }
