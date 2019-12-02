@@ -22,6 +22,7 @@ public class Menu : MonoBehaviour
     [Header("Hub")]
     public GameObject mainCanvas;
     public GameObject hubCanvas;
+    public GameObject hubRythm;
     public GameObject texts;
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class Menu : MonoBehaviour
         timeCounter = 0.0f;
         Cursor.visible = false;
         hubCanvas.SetActive(false);
+        hubRythm.SetActive(false);
     }
 
     // Update is called once per frame
@@ -92,6 +94,12 @@ public class Menu : MonoBehaviour
     }
 
     public void OnRythm()
+    {
+        hubCanvas.SetActive(false);
+        hubRythm.SetActive(true);
+    }
+
+    public void OnYouSayRun()
     {
         Debug.Log("yousayrun");
         SceneManager.LoadSceneAsync("YouSayRun");
