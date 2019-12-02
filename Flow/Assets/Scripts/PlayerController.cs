@@ -10,12 +10,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Life")]
     public bool deathOnHit;
-    private bool alive;
-    //public GameObject goToinstantiate;
-
-    //public ParticleSystem ps1;
-    //public ParticleSystem ps2;
-
+    public bool alive;
 
     [Header("Setup Value")]
     public float speedIncrement;
@@ -73,8 +68,8 @@ public class PlayerController : MonoBehaviour
         // bc = GetComponent<BoxCollider>();
         cc = GetComponent<CapsuleCollider>();
         anim = GetComponentInChildren<Animator>();
-        AudioSource audioSource = FindObjectOfType<AudioSource>();
-        audioSource.Play();
+        //AudioSource audioSource = FindObjectOfType<AudioSource>();
+        //audioSource.Play();
 
         updateSpeedMultiplier(speedMultiplier);
 
@@ -329,7 +324,7 @@ public class PlayerController : MonoBehaviour
 
         //mute de la musique
         AudioSource audioSource = FindObjectOfType<AudioSource>();
-        Debug.Log(audioSource.gameObject.name);
+        //Debug.Log(audioSource.gameObject.name);
         audioSource.Stop();
         audioSource.PlayOneShot(deathAudio);
         comboManager.scoreIncreasing = false;

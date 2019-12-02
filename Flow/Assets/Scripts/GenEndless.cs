@@ -12,6 +12,8 @@ public class GenEndless : MonoBehaviour
     public GameObject joueur;
     private Vector3 posJoueur;
 
+    int lastIndex = -1;
+
     public float easyToMedium = 20.0f;
     public float mediumToHard = 20.0f;
     public float hardToUltra = 20.0f;
@@ -54,6 +56,10 @@ public class GenEndless : MonoBehaviour
         int hard = Random.Range(11, 14);
         int ultra = Random.Range(15, 23);
 
+        while ((lastIndex == 18 && ultra == 19) || (lastIndex == 19 && ultra == 18))
+        {
+            ultra = Random.Range(15, 23);
+        }
 
         if (targetTime >= easyToMedium)
         {
@@ -63,25 +69,23 @@ public class GenEndless : MonoBehaviour
                 {
                     index = ultra;
                 }
-
                 else
                 {
                     index = hard;
-
                 }
             }
-
             else
             {
                 index = medium;
             }
         }
-
         else
         {
             index = easy;
         }
 
-        Destroy(Instantiate(Resources.Load<GameObject>("Prefabs/Obs" + index), currentPoint, Quaternion.identity),6);
+        lastIndex = index;
+
+        Destroy(Instantiate(Resources.Load<GameObject>("Prefabs/Obs" + index), currentPoint, Quaternion.identity), 6);
     }
 }
