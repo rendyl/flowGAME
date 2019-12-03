@@ -16,3 +16,5 @@ Flow/Assembly-CSharp-Editor.csproj
 Flow/Assembly-CSharp.csproj
 
 Flow/Flow.sln
+
+Build/

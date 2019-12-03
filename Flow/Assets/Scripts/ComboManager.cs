@@ -53,6 +53,7 @@ public class ComboManager : MonoBehaviour
     private int nbOstaclesSuccess;
     void Start()
     {
+        Time.timeScale = 1.0f;
         Cursor.visible = false;
         prefabMenu.SetActive(false);
         hyperDrive1.Stop();
@@ -278,6 +279,7 @@ public class ComboManager : MonoBehaviour
     public void endGame()
     {
         scoreIncreasing = false;
+        Cursor.visible = true;
         Time.timeScale = 0.0f;
         //AudioSource audioSource = FindObjectOfType<AudioSource>();
         //audioSource.Stop();
@@ -287,6 +289,11 @@ public class ComboManager : MonoBehaviour
         {
             texts[i].text = ""+i;
         }*/
+
+        if (currentCombo > highestCombo)
+        {
+            highestCombo = currentCombo;
+        }
         TMPro.TextMeshProUGUI score = texts[1];
         score.text = "Score : " + Mathf.Round(scoreCount).ToString("000000000");
         TMPro.TextMeshProUGUI highestComobo = texts[2];
