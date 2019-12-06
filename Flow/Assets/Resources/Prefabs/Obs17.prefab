@@ -72,10 +72,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: ObstacleInvisible
       objectReference: {fileID: 0}
-    - target: {fileID: 5970269433881912882, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 5483425727095862068, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: m_TagString
+      value: ObstacleInvisible
       objectReference: {fileID: 0}
     - target: {fileID: 2068196968190484630, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
@@ -87,12 +87,27 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7035709935216810965, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 1774911695620568358, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1883953367607476504, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1883953367607476504, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 3654639717138245361, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5970269433881912882, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035709935216810965, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_IsActive
       value: 0

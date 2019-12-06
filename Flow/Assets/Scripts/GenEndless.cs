@@ -50,6 +50,9 @@ public class GenEndless : MonoBehaviour
 
         currentPoint += new Vector3(0, 0, 5f);
         int index = Random.Range(1, 23);
+        // tirage du Obs aléatoirement
+        int proba = Random.Range(1, 3);
+        // tirage de la probabilite 1 chance sur 3
 
         int easy = Random.Range(1, 5);
         int medium = Random.Range(6, 10);
@@ -67,16 +70,37 @@ public class GenEndless : MonoBehaviour
             {
                 if (targetTime >= hardToUltra)
                 {
-                    index = ultra;
+                    if (proba == 1)
+                    {
+                        index = hard;
+                    }
+                    else
+                    { 
+                        index = ultra;
+                    }
                 }
                 else
                 {
-                    index = hard;
+                    if (proba == 1)
+                    {
+                        index = medium;
+                    }
+                    else
+                    {
+                        index = hard;
+                    }
                 }
             }
             else
             {
-                index = medium;
+                if (proba == 1)
+                {
+                    index = easy;
+                }
+                else
+                {
+                    index = medium;
+                }
             }
         }
         else
