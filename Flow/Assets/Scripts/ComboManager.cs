@@ -22,6 +22,7 @@ public class ComboManager : MonoBehaviour
     public int pointsPerObstacles;
     public bool scoreIncreasing;
     public int maxFailStreak;
+    public bool isEndless = false;
 
     private Dictionary<int,float> fillAmoutPerSpeed;
     private Dictionary<int, int> multiScorePerCombo;
@@ -63,8 +64,11 @@ public class ComboManager : MonoBehaviour
         back.Stop();
 
         textRestart.gameObject.SetActive(false);
-        sliderVolume.value= PlayerPrefs.GetFloat("volume", 0.5f);
+        float volume = PlayerPrefs.GetFloat("volume", 0.5f);
+        sliderVolume.value= volume;
         sliderVolume.onValueChanged.AddListener(OnVolumeChange);
+        AudioSource audioSource = FindObjectOfType<AudioSource>();
+        audioSource.volume = volume;
         prefabFin.SetActive(false);
 
         scoreText.text = "000000000";
@@ -170,8 +174,16 @@ public class ComboManager : MonoBehaviour
         if (failStreak > maxFailStreak)
         {
             Debug.Log("dead");
-            FindObjectOfType<PlayerController>().dead();
-            textRestart.gameObject.SetActive(true);
+            if (isEndless)
+            {
+                endGame();
+                textRestart.gameObject.SetActive(true);
+            }
+            else
+            {
+                FindObjectOfType<PlayerController>().dead();
+                textRestart.gameObject.SetActive(true);
+            }
         }
         
         if (fillAmoutPerSpeed.ContainsKey(currentCombo))
@@ -344,5 +356,6 @@ public class ComboManager : MonoBehaviour
         AudioSource audioSource = FindObjectOfType<AudioSource>();
         audioSource.volume = newVolume;
         PlayerPrefs.SetFloat("volume", newVolume);
+        PlayerPrefs.Save();
     }
 }
