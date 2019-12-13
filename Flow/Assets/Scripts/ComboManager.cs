@@ -42,6 +42,7 @@ public class ComboManager : MonoBehaviour
     public ParticleSystem rightFoot;
 
     [Header("Menu pause")]
+    private bool isEnded = false;
     public GameObject prefabMenu;
     public Slider sliderVolume;
     public TMPro.TextMeshProUGUI textRestart;
@@ -116,7 +117,7 @@ public class ComboManager : MonoBehaviour
             success();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !isEnded)
         {
             menuPause();
         }
@@ -174,6 +175,7 @@ public class ComboManager : MonoBehaviour
         if (failStreak > maxFailStreak)
         {
             Debug.Log("dead");
+            FindObjectOfType<PlayerController>().dead();
             if (isEndless)
             {
                 endGame();
@@ -181,7 +183,6 @@ public class ComboManager : MonoBehaviour
             }
             else
             {
-                FindObjectOfType<PlayerController>().dead();
                 textRestart.gameObject.SetActive(true);
             }
         }
@@ -292,6 +293,7 @@ public class ComboManager : MonoBehaviour
     {
         scoreIncreasing = false;
         Cursor.visible = true;
+        isEnded = true;
         Time.timeScale = 0.0f;
         //AudioSource audioSource = FindObjectOfType<AudioSource>();
         //audioSource.Stop();
