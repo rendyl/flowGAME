@@ -312,10 +312,13 @@ public class ComboManager : MonoBehaviour
         score.text = "Score : " + Mathf.Round(scoreCount).ToString("000000000");
         TMPro.TextMeshProUGUI highestComobo = texts[2];
         highestComobo.text = "Highest combo : " + highestCombo;
-        TMPro.TextMeshProUGUI ratioObs = texts[3];
+        TMPro.TextMeshProUGUI ratioObsP = texts[3];
         float ratio = (float)nbOstaclesSuccess / nbObstacles;
         ratio *= 100f;
-        ratioObs.text = "Ratio obstacles : "+ratio.ToString("00.00")+"%";
+        ratioObsP.text = "Ratio obstacles (%) : "+ratio.ToString("00.00")+"%";
+
+        TMPro.TextMeshProUGUI ratioObs = texts[4];
+        ratioObs.text = "Ratio obstacles : " + nbOstaclesSuccess + " / " + nbObstacles;
     }
 
     public void OnQuitButton()
