@@ -51,7 +51,7 @@ public class GenEndless : MonoBehaviour
         currentPoint += new Vector3(0, 0, 5f);
         int index = Random.Range(1, 23);
         // tirage du Obs aléatoirement
-        int proba = Random.Range(1, 3);
+        int proba = Random.Range(1, 4);
         // tirage de la probabilite 1 chance sur 3
 
         int easy = Random.Range(1, 5);
