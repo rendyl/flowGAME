@@ -5396,7 +5396,7 @@ MonoBehaviour:
   TriggerDistance: 50
   startPoint: {x: 0, y: 0, z: 0}
   joueur: {fileID: 1397182243}
-  easyToMedium: 20
+  easyToMedium: 10
   mediumToHard: 20
   hardToUltra: 20
 --- !u!1 &349934529

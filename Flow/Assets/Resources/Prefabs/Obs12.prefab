@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8320596965904008228
+--- !u!1001 &1509274542249370085
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1031410600049288774, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Name
-      value: Obs12
+      value: Obs11
       objectReference: {fileID: 0}
     - target: {fileID: 8113523573740735560, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
@@ -67,42 +67,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2728393230769827457, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 8180680736372282134, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_TagString
       value: ObstacleInvisible
       objectReference: {fileID: 0}
-    - target: {fileID: 4386133620347390028, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 5483425727095862068, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_TagString
       value: ObstacleInvisible
       objectReference: {fileID: 0}
-    - target: {fileID: 7653563620611156411, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 1774911695620568358, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919610968815049568, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 3654639717138245361, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 919610968815049568, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 3654639717138245361, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5970269433881912882, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 4164759196241601088, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2068196968190484630, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 4335813890832590340, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2068196968190484630, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
+    - target: {fileID: 4335813890832590340, guid: 27dc691d7b2892c4eaeaf8becce42dfd,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
