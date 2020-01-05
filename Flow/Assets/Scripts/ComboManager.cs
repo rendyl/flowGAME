@@ -321,6 +321,12 @@ public class ComboManager : MonoBehaviour
         ratioObs.text = "Ratio obstacles : " + nbOstaclesSuccess + " / " + nbObstacles;
     }
 
+    public void OnBonus()
+    {
+        //appel de cette fonction lorsque l on ramasse un obstacles
+        maxFailStreak++;
+    }
+
     public void OnQuitButton()
     {
         Debug.Log("Quit");

@@ -5399,6 +5399,10 @@ MonoBehaviour:
   easyToMedium: 10
   mediumToHard: 20
   hardToUltra: 20
+  maxBonus: 4
+  probaSpawnBonus: 0.02
+  prefabBonus: {fileID: 4504375469087623506, guid: 0d502f611577d7d40befd1f148b2106f,
+    type: 3}
 --- !u!1 &349934529
 GameObject:
   m_ObjectHideFlags: 0
@@ -13736,6 +13740,10 @@ MonoBehaviour:
   psFoot2: {fileID: 1050976221}
   psBack: {fileID: 754763385}
   comboManager: {fileID: 1117465455}
+  tempsEffetBonusRamasses: 1.2
+  prefabBonusRecup: {fileID: 4908811604970357254, guid: 969d305bdb632074dac9d0aac8682057,
+    type: 3}
+  transformEffetBonus: {fileID: 591703226}
 --- !u!136 &1397182249
 CapsuleCollider:
   m_ObjectHideFlags: 0

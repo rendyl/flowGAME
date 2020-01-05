@@ -58,6 +58,11 @@ public class PlayerController : MonoBehaviour
 
     private AudioClip deathAudio;
 
+    [Header("Bonus")]
+    public float tempsEffetBonusRamasses;
+    public GameObject prefabBonusRecup;
+    public Transform transformEffetBonus;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -346,6 +351,16 @@ public class PlayerController : MonoBehaviour
             //Debug.Log(this.gameObject.tag);
             comboManager.hitObstacles();
             other.gameObject.GetComponent<MeshRenderer>().material = Resources.Load<Material>("Yellow");
+        }
+
+        else if (other.gameObject.CompareTag("Bonus"))
+        {
+            comboManager.OnBonus();
+            Destroy(other.gameObject);
+            var bonusParticle = Instantiate(prefabBonusRecup, transformEffetBonus);
+            bonusParticle.transform.localPosition = new Vector3(0f, 0f, 0f);
+            bonusParticle.transform.localScale *= 0.6f;
+            Destroy(bonusParticle, tempsEffetBonusRamasses);
         }
         else if (other.gameObject.tag == "Finish")
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GenEndless : MonoBehaviour
 {
+    [Header("Obstacles")]
     public float TriggerDistance;
 
     public Vector3 startPoint;
@@ -18,6 +19,12 @@ public class GenEndless : MonoBehaviour
     public float mediumToHard = 20.0f;
     public float hardToUltra = 20.0f;
     private float targetTime;
+
+    [Header("Bonus")]
+    public int maxBonus;
+    private int nbBonusSpawn;
+    public float probaSpawnBonus = 0.02f;
+    public GameObject prefabBonus;
 
     // Start is called before the first frame update
     void Start()
@@ -112,5 +119,19 @@ public class GenEndless : MonoBehaviour
         lastIndex = index;
 
         Destroy(Instantiate(Resources.Load<GameObject>("Prefabs/Obs" + index), currentPoint, Quaternion.identity), 6);
+
+        //gestion de spawn des bonus
+        if (nbBonusSpawn < maxBonus)
+        {
+            float randBonus = Random.Range(0.0f, 1.0f);
+            if (randBonus < probaSpawnBonus)
+            {
+                //on spawn un bonus au centre
+                GameObject bonus = Instantiate(prefabBonus, currentPoint, Quaternion.identity);
+                bonus.transform.localPosition += new Vector3(0, 1, -5);
+                Destroy(bonus, 10.0f);
+                nbBonusSpawn++;
+            }
+        }
     }
 }
