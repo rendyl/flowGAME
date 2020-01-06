@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657642, g: 0.49641156, b: 0.5748181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13674,6 +13674,36 @@ PrefabInstance:
       propertyPath: playerToFollow
       value: 
       objectReference: {fileID: 1397182243}
+    - target: {fileID: 7021571450971525113, guid: 75e501d7d89d09a429544213eddaf423,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021571450971525113, guid: 75e501d7d89d09a429544213eddaf423,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021571450914017559, guid: 75e501d7d89d09a429544213eddaf423,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021571450914017559, guid: 75e501d7d89d09a429544213eddaf423,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021571450914017558, guid: 75e501d7d89d09a429544213eddaf423,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021571450971525112, guid: 75e501d7d89d09a429544213eddaf423,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75e501d7d89d09a429544213eddaf423, type: 3}
 --- !u!4 &1376778558 stripped
@@ -20799,6 +20829,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242018742312247430, guid: 76f6eab4c2ec4b747b1d4f8896aba21d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1117465455}
+    - target: {fileID: 4242018742312247430, guid: 76f6eab4c2ec4b747b1d4f8896aba21d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnQuitButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242018743019750926, guid: 76f6eab4c2ec4b747b1d4f8896aba21d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1117465455}
+    - target: {fileID: 4242018743019750926, guid: 76f6eab4c2ec4b747b1d4f8896aba21d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMainMenuButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76f6eab4c2ec4b747b1d4f8896aba21d, type: 3}
