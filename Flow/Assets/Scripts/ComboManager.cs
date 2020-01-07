@@ -112,19 +112,9 @@ public class ComboManager : MonoBehaviour
 
         scoreText.SetText("" + Mathf.Round(scoreCount).ToString("000000000"));
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            success();
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape) && !isEnded)
         {
             menuPause();
-        }
-
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            endGame();
         }
     }
 
