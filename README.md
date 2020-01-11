@@ -9,11 +9,12 @@ Gamagora 2019 - ProgJV - Flow
 ## Fiche signalétique :
 Flow est un Runner 3D Die & Retry rythmé. En vue troisième personne, le joueur incarne un
 personnage qui se déplace dans une ville. Dans cette dernière, il doit terminer le plus
-rapidement possible un niveau, son score final étant basé dessus. Le joueur à la possibilité de
-se déplacer dans 3 couloirs et sur 3 hauteurs. Les obstacles sont synchronisés sur la musique
-dans le mode Rythm et généré aléatoirement dans le mode Endless (voir section appropriés)
-L'espace de jeu se compose d'un tableau de 3x3. La hitbox du personnage fait 1 bloc de large
-et 2 de haut.
+rapidement possible un niveau, son score final étant basé dessus. 
+Les obstacles sont synchronisés sur la musique
+dans le mode Rythm et généré aléatoirement dans le mode Endless (voir section appropriés). <br>
+Le joueur à la possibilité de se déplacer dans 3 couloirs et sur 3 hauteurs. <br>
+L'espace de jeu se compose d'un tableau de 3x3. <br>
+La hitbox du personnage fait 1 bloc de large et 2 de haut. <br>
 Il est possible de se déplacer de 4 manières différentes :
 - Déplacement latéral ( Q/D ou ←/→ ) : pour changer de couloirs
 - Saut (Z ou î) : permet de rester dans la case hauteur la plus élevée (1 seul bloc de haut
