@@ -1,9 +1,11 @@
 # FLOW
 Gamagora 2019 - ProgJV - Flow
 
-![Flow](Flow.png)
+## Illustrations  : 
+![Flow](FlowMenu.png)
+![Flow](FlowRythm.png)
 
-#### Participants au projet : 
+## Participants au projet : 
 ***LATBI Rendy, COURBIER Raphaël***, *Aurélien Ambroise*
 
 ## Fiche signalétique :
