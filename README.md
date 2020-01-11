@@ -1,12 +1,12 @@
 # FLOW
 Gamagora 2019 - ProgJV - Flow
 
+## Participants au projet : 
+***LATBI Rendy, COURBIER Raphaël***, *Aurélien Ambroise*
+
 ## Illustrations  : 
 ![Flow](FlowMenu.PNG)
 ![Flow](FlowRythm.PNG)
-
-## Participants au projet : 
-***LATBI Rendy, COURBIER Raphaël***, *Aurélien Ambroise*
 
 ## Fiche signalétique :
 *Flow est un Runner 3D Die & Retry rythmé. En vue troisième personne, le joueur incarne un
