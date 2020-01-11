@@ -73,6 +73,6 @@ d’échec : par exemple au départ on perd en prenant 2 obstacles à la suite, 
 bonus on perd en prenant 3 obstacles à la suite… etc
 
 ## Répartition des tâches :
-- Aurélien : Bonus, Difficulté Endless
-- Raphaël : Score/ComboManager, Interface, Inputs, Generation d'Obstacles Endless
-- Rendy : Character Controller, Animations, Gestion Sonore, Particules, Post-Processing, Camera, Menu, Mode de jeu Rythm 
+- *Aurélien* : Bonus, Difficulté Endless
+- ***Raphaël*** : Score/ComboManager, Interface, Inputs, Generation d'Obstacles Endless
+- ***Rendy*** : Character Controller, Animations, Gestion Sonore, Particules, Post-Processing, Camera, Menu, Mode de jeu Rythm 
