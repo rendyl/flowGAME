@@ -79,5 +79,8 @@ bonus on perd en prenant 3 obstacles à la suite… etc
 - ***Raphaël*** : Score/ComboManager, Interface, Inputs, Generation d'Obstacles Endless
 - ***Rendy*** : Character Controller, Animations, Gestion Sonore, Particules, Post-Processing, Camera, Menu, Mode de jeu Rythm 
 
+## Vidéo Youtube : 
+https://www.youtube.com/watch?v=6nculzF3yzg
+
 ## Lien pour télécharger le jeu :
 https://drive.google.com/file/d/1k_xWjB4XBl2JBh7IMOeSIJGZ-ixID8sK/view
